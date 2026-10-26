@@ -1,0 +1,7 @@
+* text=auto eol=lf
+data/** -text
+src/filingtime/_vendor/** -text
+*.gz -text
+*.png -text
+*.parquet -text
+*.pdf -text

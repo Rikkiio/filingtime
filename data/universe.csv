@@ -1,0 +1,13 @@
+ticker,cik,name,split,sector,size_bucket,selection_reason
+AAPL,0000320193,Apple Inc.,development,consumer technology,large,September fiscal year and hardware services mix
+MSFT,0000789019,Microsoft Corporation,development,software,large,June fiscal year and multiple operating segments
+KO,0000021344,The Coca-Cola Company,development,consumer staples,large,December fiscal year and global consolidated reporting
+CAT,0000018230,Caterpillar Inc.,development,industrial machinery,large,Industrial issuer with product and financing components
+GE,0000040545,General Electric Company,development,industrial conglomerate,large,Business boundary changes require explicit comparability assessment
+NKE,0000320187,NIKE Inc.,development,apparel,large,May fiscal year and global wholesale retail operations
+AAP,0001158449,Advance Auto Parts Inc.,development,automotive retail,mid,52 or 53 week retail fiscal calendar
+GPRO,0001500435,GoPro Inc.,development,consumer electronics,small,Smaller issuer with hardware and subscription operations
+COST,0000909832,Costco Wholesale Corporation,holdout,warehouse retail,large,August fiscal year and membership revenue distinction
+DE,0000315189,Deere & Company,holdout,agricultural machinery,large,October fiscal year and product financing distinction
+HPQ,0000047217,HP Inc.,holdout,computer hardware,large,October fiscal year and product segments
+FL,0000850209,Foot Locker Inc.,holdout,footwear retail,mid,52 or 53 week retail calendar and issuer identity continuity

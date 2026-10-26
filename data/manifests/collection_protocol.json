@@ -1,0 +1,32 @@
+{
+  "protocol_version": "1.0.0",
+  "frozen_on": "2026-10-26",
+  "selection": "Purposive engineering challenge sample selected for sector, issuer size, fiscal calendar and reporting-boundary diversity before inspecting outcome differences. Not a probability sample and not representative of market-wide leakage prevalence.",
+  "company_count": 12,
+  "development_count": 8,
+  "holdout_count": 4,
+  "target_fiscal_years": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "filing_date_start": "2019-01-01",
+  "filing_date_end": "2025-12-31",
+  "forms": [
+    "10-K",
+    "10-K/A"
+  ],
+  "metadata": "SEC submissions API, including historical pagination files",
+  "raw_source": "SEC EDGAR Archives original primary documents plus issuer XBRL schema and linkbases, instance and FilingSummary where present",
+  "available_at_rule": "UTC acceptanceDateTime plus 24 hours; fixed conservative research convention, not measured investor receipt time",
+  "historical_scope": "Specified annual filing set only; no claim of earliest public market knowledge",
+  "holdout_policy": "Raw bytes may be downloaded before freeze; values must not be parsed or inspected until normalization and query rules are frozen",
+  "compression": "gzip with mtime=0; source manifest records SHA-256 of original and compressed bytes",
+  "rate_limit_requests_per_second": 2,
+  "source_reference": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+  "accepted_at_cutoff_utc": "2025-12-31T23:59:59Z",
+  "window_note": "SEC filingDate is a filing-calendar date; the acceptance cutoff is an additional UTC instant filter. Both conditions must hold. Selection audit records excluded accession counts."
+}

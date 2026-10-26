@@ -1,0 +1,36 @@
+{
+  "repository": "https://github.com/Arelle/EDGAR",
+  "commit": "4891c4c9889c77af247428ceff4fa7cc52d534ea",
+  "files": [
+    {
+      "source_url": "https://raw.githubusercontent.com/Arelle/EDGAR/4891c4c9889c77af247428ceff4fa7cc52d534ea/transform/__init__.py",
+      "path": "src/filingtime/_vendor/sec_transform/__init__.py",
+      "sha256": "2296586f945ffd95ab37d3d4147c4e45f42ce4e5f397f61143e053208adefbf1",
+      "bytes": 41912
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/Arelle/EDGAR/4891c4c9889c77af247428ceff4fa7cc52d534ea/transform/text2num.py",
+      "path": "src/filingtime/_vendor/sec_transform/text2num.py",
+      "sha256": "6c9b26354320a2fb34fe380cdc71ff7f8d1cc712811e6b10c661e512f0383409",
+      "bytes": 3660
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/Arelle/EDGAR/4891c4c9889c77af247428ceff4fa7cc52d534ea/LICENSE",
+      "path": "src/filingtime/_vendor/sec_transform/LICENSE",
+      "sha256": "5537d4d10b76b81b6e8dfd8b644480a4b1efa332fbb0cdb61126c5be781ef7b4",
+      "bytes": 6554
+    }
+  ],
+  "scope": "SEC inline transformations only, not full EFM validation",
+  "upstream_copyright_reference": {
+    "status": "dangling_upstream_reference",
+    "note": "transform/__init__.py refers to COPYRIGHT.md but the exact pinned EDGAR tree contains no such file. Original header and root LICENSE retained without substituting a different repository license.",
+    "verified_tree_url": "https://api.github.com/repos/Arelle/EDGAR/git/trees/4891c4c9889c77af247428ceff4fa7cc52d534ea?recursive=1"
+  },
+  "supplemental_license_notice": {
+    "source_url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "path": "src/filingtime/_vendor/sec_transform/APACHE-2.0.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "note": "Supplemental standard Apache-2.0 text preserving the unmodified upstream module license declaration; does not replace upstream root LICENSE"
+  }
+}
