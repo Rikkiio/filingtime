@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-10-26T16:30:40Z",
+  "status": "passed",
+  "checked_sources": 800,
+  "checked_taxonomy_sources": 174,
+  "checked_vendor_files": 4,
+  "checked_notices": 2,
+  "errors": [],
+  "scope": "Byte integrity only; no financial values parsed or inspected by this verification."
+}

@@ -1,0 +1,44 @@
+{
+  "recorded_at": "2026-10-26T16:31:08.300348+00:00",
+  "status": "failed_closed",
+  "stage": "first_holdout_normalization",
+  "scope": "The first normalization attempt failed before writing holdout processed artifacts. This receipt reproduces that same failure before any correction.",
+  "freeze": {
+    "status": "unchanged",
+    "changed": [],
+    "freeze_created_at": "2026-10-26T16:23:03.080956+00:00",
+    "claim": "Rule bytes match the pre-evaluation record"
+  },
+  "freeze_record_sha256": "5c5be8fa2a2c6bc9356e1e59b2364c1f6913e307ebe172634f5dabb666e7dc07",
+  "failure": {
+    "exception": "ValueError",
+    "message": "Conflicting fiscal-year end: ('0000850209', 2020)"
+  },
+  "outputs_existed_before": {
+    "data/processed/holdout_facts.jsonl": false,
+    "data/processed/holdout_normalization.json": false,
+    "data/processed/holdout_targets.json": false
+  },
+  "outputs_exist_after": {
+    "data/processed/holdout_facts.jsonl": false,
+    "data/processed/holdout_normalization.json": false,
+    "data/processed/holdout_targets.json": false
+  },
+  "conflicting_original_audits": [
+    {
+      "path": "data/manifests/parsed/0000850209-20-000007.json",
+      "sha256": "237a57819b634228ee0e1832551df4341db8b79a74ab979bd3bbe87c07fa684e",
+      "accession": "0000850209-20-000007",
+      "fiscal_year_focus": "2020",
+      "document_period_end": "2020-02-01"
+    },
+    {
+      "path": "data/manifests/parsed/0000850209-21-000003.json",
+      "sha256": "e1572908b27db220e61fcec54c0c76b56660ed75972da8a6c216b60044b249d4",
+      "accession": "0000850209-21-000003",
+      "fiscal_year_focus": "2020",
+      "document_period_end": "2021-01-30"
+    }
+  ],
+  "human_review_status": "pending"
+}
