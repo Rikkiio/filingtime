@@ -18,11 +18,15 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
     env:
-      UV_CACHE_DIR: ${{ runner.temp }}/filingtime-uv-cache
-      UV_PYTHON_INSTALL_DIR: ${{ runner.temp }}/filingtime-python
-      PIP_CACHE_DIR: ${{ runner.temp }}/filingtime-pip-cache
       PYTHONUTF8: "1"
     steps:
+      - name: Configure temporary dependency directories
+        shell: bash
+        run: |
+          printf '%s\n' \
+            "UV_CACHE_DIR=$RUNNER_TEMP/filingtime-uv-cache" \
+            "UV_PYTHON_INSTALL_DIR=$RUNNER_TEMP/filingtime-python" \
+            "PIP_CACHE_DIR=$RUNNER_TEMP/filingtime-pip-cache" >> "$GITHUB_ENV"
       - name: Check out exact repository bytes
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
