@@ -3,5 +3,6 @@ data/** -text
 src/filingtime/_vendor/** -text
 *.gz -text
 *.png -text
+*.svg -text
 *.parquet -text
 *.pdf -text
