@@ -49,9 +49,12 @@ Use the original report and [annotation guide](ANNOTATION_GUIDE.md). Record an i
     "previous_period_end": null,
     "previous_amount": null,
     "previous_fact_locator": null,
+    "previous_concept_qname": null,
+    "previous_concept_namespace": null,
     "same_filing": null,
     "unit_compatible": null,
     "basis_compatible": null,
+    "concept_namespace_and_local_name_equal": null,
     "supporting_note_locator": null,
     "change_classification": null,
     "comparability_decision": "pending"
@@ -95,7 +98,7 @@ Use the original report and [annotation guide](ANNOTATION_GUIDE.md). Record an i
 | Amount | Printed line, currency/scale and XBRL fact | Displayed and normalized decimal values |
 | Scope | Consolidated statement, entity and dimensions | Consolidated total, component or unresolved |
 | Period | Original start/end dates and statement heading | Annual, transition, quarter or unresolved |
-| Comparability | Same-filing adjacent-year column and explanatory notes | Comparable, incomparable or unresolved |
+| Comparability | Same-filing adjacent-year column, concept namespace/local name, currency, statement basis and explanatory notes | Structural checks and economic interpretation recorded separately |
 | Historical selection | Acceptance evidence and fixed availability convention | Eligible version or explicit refusal |
 | Program comparison | Saved output from the frozen code | Agreement by value, semantics and version separately |
 

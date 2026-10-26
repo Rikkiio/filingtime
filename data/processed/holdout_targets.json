@@ -1,0 +1,194 @@
+[
+  {
+    "cik": "0000047217",
+    "ticker": "HPQ",
+    "fiscal_year": 2019,
+    "period_end": "2019-10-31",
+    "split": "holdout",
+    "accession": "0000047217-19-000071"
+  },
+  {
+    "cik": "0000047217",
+    "ticker": "HPQ",
+    "fiscal_year": 2020,
+    "period_end": "2020-10-31",
+    "split": "holdout",
+    "accession": "0000047217-20-000045"
+  },
+  {
+    "cik": "0000047217",
+    "ticker": "HPQ",
+    "fiscal_year": 2021,
+    "period_end": "2021-10-31",
+    "split": "holdout",
+    "accession": "0000047217-21-000060"
+  },
+  {
+    "cik": "0000047217",
+    "ticker": "HPQ",
+    "fiscal_year": 2022,
+    "period_end": "2022-10-31",
+    "split": "holdout",
+    "accession": "0000047217-22-000068"
+  },
+  {
+    "cik": "0000047217",
+    "ticker": "HPQ",
+    "fiscal_year": 2023,
+    "period_end": "2023-10-31",
+    "split": "holdout",
+    "accession": "0000047217-23-000100"
+  },
+  {
+    "cik": "0000047217",
+    "ticker": "HPQ",
+    "fiscal_year": 2024,
+    "period_end": "2024-10-31",
+    "split": "holdout",
+    "accession": "0000047217-24-000080"
+  },
+  {
+    "cik": "0000850209",
+    "ticker": "FL",
+    "fiscal_year": 2019,
+    "period_end": "2020-02-01",
+    "split": "holdout",
+    "accession": "0000850209-20-000007"
+  },
+  {
+    "cik": "0000850209",
+    "ticker": "FL",
+    "fiscal_year": 2020,
+    "period_end": "2021-01-30",
+    "split": "holdout",
+    "accession": "0000850209-21-000003"
+  },
+  {
+    "cik": "0000850209",
+    "ticker": "FL",
+    "fiscal_year": 2021,
+    "period_end": "2022-01-29",
+    "split": "holdout",
+    "accession": "0000850209-22-000003"
+  },
+  {
+    "cik": "0000850209",
+    "ticker": "FL",
+    "fiscal_year": 2022,
+    "period_end": "2023-01-28",
+    "split": "holdout",
+    "accession": "0000850209-23-000006"
+  },
+  {
+    "cik": "0000909832",
+    "ticker": "COST",
+    "fiscal_year": 2019,
+    "period_end": "2019-09-01",
+    "split": "holdout",
+    "accession": "0000909832-19-000019"
+  },
+  {
+    "cik": "0000909832",
+    "ticker": "COST",
+    "fiscal_year": 2020,
+    "period_end": "2020-08-30",
+    "split": "holdout",
+    "accession": "0000909832-20-000017"
+  },
+  {
+    "cik": "0000909832",
+    "ticker": "COST",
+    "fiscal_year": 2021,
+    "period_end": "2021-08-29",
+    "split": "holdout",
+    "accession": "0000909832-21-000014"
+  },
+  {
+    "cik": "0000909832",
+    "ticker": "COST",
+    "fiscal_year": 2022,
+    "period_end": "2022-08-28",
+    "split": "holdout",
+    "accession": "0000909832-22-000021"
+  },
+  {
+    "cik": "0000909832",
+    "ticker": "COST",
+    "fiscal_year": 2023,
+    "period_end": "2023-09-03",
+    "split": "holdout",
+    "accession": "0000909832-23-000042"
+  },
+  {
+    "cik": "0000909832",
+    "ticker": "COST",
+    "fiscal_year": 2024,
+    "period_end": "2024-09-01",
+    "split": "holdout",
+    "accession": "0000909832-24-000049"
+  },
+  {
+    "cik": "0000850209",
+    "ticker": "FL",
+    "fiscal_year": 2023,
+    "period_end": "2024-02-03",
+    "split": "holdout",
+    "accession": "0001437749-24-009866"
+  },
+  {
+    "cik": "0000850209",
+    "ticker": "FL",
+    "fiscal_year": 2024,
+    "period_end": "2025-02-01",
+    "split": "holdout",
+    "accession": "0001437749-25-009620"
+  },
+  {
+    "cik": "0000315189",
+    "ticker": "DE",
+    "fiscal_year": 2019,
+    "period_end": "2019-11-03",
+    "split": "holdout",
+    "accession": "0001558370-19-011614"
+  },
+  {
+    "cik": "0000315189",
+    "ticker": "DE",
+    "fiscal_year": 2020,
+    "period_end": "2020-11-01",
+    "split": "holdout",
+    "accession": "0001558370-20-014436"
+  },
+  {
+    "cik": "0000315189",
+    "ticker": "DE",
+    "fiscal_year": 2021,
+    "period_end": "2021-10-31",
+    "split": "holdout",
+    "accession": "0001558370-21-016864"
+  },
+  {
+    "cik": "0000315189",
+    "ticker": "DE",
+    "fiscal_year": 2022,
+    "period_end": "2022-10-30",
+    "split": "holdout",
+    "accession": "0001558370-22-018703"
+  },
+  {
+    "cik": "0000315189",
+    "ticker": "DE",
+    "fiscal_year": 2023,
+    "period_end": "2023-10-29",
+    "split": "holdout",
+    "accession": "0001558370-23-019812"
+  },
+  {
+    "cik": "0000315189",
+    "ticker": "DE",
+    "fiscal_year": 2024,
+    "period_end": "2024-10-27",
+    "split": "holdout",
+    "accession": "0001558370-24-016169"
+  }
+]

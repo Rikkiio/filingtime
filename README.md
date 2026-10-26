@@ -1,10 +1,12 @@
 # FilingTime
 
+[![Reproduce the fixed corpus](https://github.com/Rikkiio/filingtime/actions/workflows/ci.yml/badge.svg)](https://github.com/Rikkiio/filingtime/actions/workflows/ci.yml)
+
 **Which revenue number was available then?**
 
 FilingTime reconstructs historical annual revenue from original SEC filings and measures how premature disclosure assumptions and later-value backfilling distort a financial feature. Every admitted value keeps a path back to the original document.
 
-[Research report](docs/REPORT.md) · [Real source cases](docs/SOURCE_CASES.md) · [Protocol](docs/PROTOCOL.md) · [中文说明](README.zh-CN.md)
+[Research report](docs/REPORT.md) · [Real source cases](docs/SOURCE_CASES.md) · [Validation evidence](docs/IMPLEMENTATION_STATUS.md) · [Résumé notes](docs/RESUME.md) · [中文说明](README.zh-CN.md)
 
 <details>
 <summary>Required notices for the unchanged accounting taxonomies included in this work</summary>
@@ -147,7 +149,9 @@ flowchart LR
     E --> F
 ```
 
-It covers a fixed **12-company, 72-company-year design**: 8 development issuers and 4 held-out issuers, fiscal years 2019–2024. Source filings extend through the declared 2025 cutoff. Full source/target coverage, including failures, is reported separately from usable query coverage.
+It covers a fixed **12-company, 72-company-year design**: 8 development issuers and 4 issuers initially reserved for evaluation, fiscal years 2019–2024. Source filings extend through the declared 2025 cutoff. Full source/target coverage, including failures, is reported separately from usable query coverage.
+
+**The first frozen evaluation failed closed.** Foot Locker's DEI fiscal-year label conflicted with its own fiscal-period explanation and the next filing. The original failure, source bytes, parsed audits and frozen rules are preserved. A documented one-field metadata correction supports a separate replay; results for the four originally reserved issuers are labeled **metadata-repaired replay**, not untouched holdout success. See the [failure and repair record](docs/POST_EVALUATION_REPAIR.md).
 
 ## Run a real case in five minutes
 
@@ -196,7 +200,7 @@ The [report](docs/REPORT.md) separates future-source use, numeric changes, growt
 uv run python scripts/reproduce.py --work-dir ./work/reproduction
 ```
 
-This runs the tests, hashes the original corpus and taxonomy dependencies, checks the rule freeze and complete planned sample, reproduces both experimental result sets in a separate directory, exercises the CLI and Parquet store, re-parses a real filing with network access disabled, and builds/installs the package in a fresh environment. Reference results are never overwritten to make a comparison pass.
+This runs the tests, hashes the original corpus and taxonomy dependencies, checks the rule freeze and complete planned sample, reproduces the development and metadata-repaired result sets in a separate directory, exercises the CLI and Parquet store, re-parses a real filing with network access disabled, and builds/installs the package in a fresh environment. Reference results are never overwritten to make a comparison pass. The repair is an explicit post-evaluation step; unchanged core hashes do not make its outputs an untouched evaluation.
 
 Add `--reparse` to replay **all** archived filings through Arelle offline. The full replay takes longer than the default smoke specimen. GitHub Actions runs the default checks on Windows and Linux.
 
@@ -209,7 +213,7 @@ For a fresh source download, set `SEC_USER_AGENT` to an application name and you
 | Original documents, contexts and hashes | The exact source bytes and location used |
 | Independent AI checks of original statement tables | A separate source-reading path for selected examples |
 | Property tests and labeled fault injections | Specific temporal and semantic failure modes |
-| Frozen rules and held-out issuers | The stated development/evaluation separation |
+| Frozen rules, preserved first failure and repair receipt | The original evaluation failure and the separately documented post-evaluation replay |
 | Clean replay and cross-platform CI | Computational reproducibility on the tested environments |
 
 **Independent human accounting review is pending.** AI source checks are labeled as AI work; no human accuracy rate or audit certification is claimed. The [review template](docs/SOURCE_REVIEW_TEMPLATE.md) and saved source checks make an external review possible.

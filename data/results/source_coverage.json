@@ -1,0 +1,31 @@
+{
+  "development": {
+    "planned_companies": 8,
+    "planned_company_years": 48,
+    "identified_target_company_years": 48,
+    "missing_company_years": [],
+    "collected_filings": 57,
+    "parsed_filings": 57,
+    "unparsed_accessions": [],
+    "parse_status_counts": {
+      "parsed": 57
+    },
+    "filings_with_validation_messages": 0,
+    "note": "Target identification is separate from accepted-revenue or growth-query coverage."
+  },
+  "holdout": {
+    "planned_companies": 4,
+    "planned_company_years": 24,
+    "identified_target_company_years": 24,
+    "missing_company_years": [],
+    "collected_filings": 30,
+    "parsed_filings": 30,
+    "unparsed_accessions": [],
+    "parse_status_counts": {
+      "parsed": 29,
+      "no_revenue_candidates": 1
+    },
+    "filings_with_validation_messages": 0,
+    "note": "Target identification is separate from accepted-revenue or growth-query coverage."
+  }
+}

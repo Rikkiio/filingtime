@@ -18,9 +18,9 @@ The source is the original 10-K/10-K/A document and its contexts/notes. SEC Comp
 | Raw evidence | Original URL, local relative path, SHA-256, table/section/anchor and context ID |
 | Economic scope | Period start/end, annual-period rationale, consolidated/segment scope, accounting basis |
 | Number | As-displayed number, scale, sign, unit, normalized decimal value, reporting precision |
-| XBRL | Concept qualified name, fact ID, context and dimensions, unit reference |
+| XBRL | Concept qualified name and namespace URI, fact ID, context and dimensions, unit reference |
 | Time | Source acceptance timestamp with zone, normalized UTC, convention-derived availability, optional query time |
-| Comparability | Prior-year source and period, unit/basis agreement, explanatory-note evidence, decision |
+| Comparability | Prior-year source and period, unit/basis/concept-identity agreement, explanatory-note evidence, decision |
 | Change explanation | No change, error correction, reclassification, policy change, business-boundary change, tagging difference, or unresolved |
 | Decision | Accepted, excluded, ambiguous or unresolved; explicit reason |
 | Review | Annotator role/identity, timestamp, blinded-to-program flag, review status, dispute resolution |
@@ -34,7 +34,7 @@ Use decimal arithmetic for money. Preserve the displayed and normalized values; 
 3. Match that line to its XBRL fact/context. Check the reporting entity, exact start/end dates, period length, unit and dimension members. An absence of dimensions is useful evidence, but does not by itself prove the line is the intended total.
 4. Record why it is an annual fiscal period. Fiscal years need not end in December and may span 52 or 53 weeks. Quarterly, year-to-date and transition periods must not become annual observations solely because they share an end date.
 5. Inspect prior-year comparative columns and relevant accounting-policy, restatement, reclassification and discontinued-operation notes. A later filing may alter prior periods without using form 10-K/A.
-6. For growth, require the current and preceding fiscal-year amounts from the same filing with a compatible unit and basis. A same-filing pair helps preserve a common presentation basis; unresolved semantic differences still require a refusal.
+6. For growth, require the current and preceding fiscal-year amounts from the same filing, with equal currency, statement basis, concept namespace and concept local name. A prefix alias does not change concept identity; a different concept must not be assumed synonymous. These structural checks help preserve a common presentation basis but do not prove constant business scope or unchanged policy. Record the supporting notes and any unresolved semantic interpretation separately.
 7. For a historical query, list eligible filing versions, apply the predeclared availability rule and record the selected version or refusal. Later evidence can explain a change but cannot be used as if it had already been disclosed.
 8. Save the initial annotation and review history without overwriting disagreements. Have a different person independently reproduce the critical fields if human validation is claimed.
 

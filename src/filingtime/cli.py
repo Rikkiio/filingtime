@@ -37,7 +37,7 @@ def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="FilingTime: evidence-linked historical revenue queries")
     parser.add_argument("--version", action="version", version=importlib.metadata.version("filingtime"))
     commands = parser.add_subparsers(dest="command", required=True)
-    for name in ("doctor", "verify", "demo", "query", "normalize", "experiment", "report", "freeze", "freeze-status", "build-store", "crosscheck"):
+    for name in ("doctor", "verify", "demo", "query", "normalize", "recover-holdout", "experiment", "report", "freeze", "freeze-status", "build-store", "crosscheck"):
         sub = commands.add_parser(name)
         sub.add_argument("--root", type=Path, default=Path.cwd(), help="Path to the FilingTime repository")
         if name in {"query", "normalize", "experiment", "build-store", "crosscheck"}:
@@ -51,6 +51,9 @@ def _parser() -> argparse.ArgumentParser:
             sub.add_argument("--growth", action="store_true")
         if name == "freeze":
             sub.add_argument("--receipt", type=Path, required=True)
+        if name == "recover-holdout":
+            sub.add_argument("--work-dir", type=Path, required=True,
+                             help="Scratch space for explicitly disclosed post-evaluation metadata repair")
     return parser
 
 
@@ -97,6 +100,9 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "normalize":
             from .normalize import normalize_corpus
             result = normalize_corpus(root, args.split)
+        elif args.command == "recover-holdout":
+            from .recovery import recover_holdout
+            result = recover_holdout(root, args.work_dir, publish=True)
         elif args.command == "build-store":
             from .store import FactStore
             store = FactStore(root / f"data/processed/stores/{args.split}")

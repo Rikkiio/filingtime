@@ -1,6 +1,7 @@
 """Verify the delivered corpus without changing its reference outputs.
 
-Default: all tests, archive/provenance/freeze checks, both experiment replays,
+Default: all tests, archive/provenance/freeze checks, disclosed recovery replay,
+experiment and report replays,
 CLI boundaries, immutable Parquet round-trip, one offline Arelle replay, and an
 offline wheel build/install smoke test. --reparse replays every original filing.
 Dependency installation is a separate earlier `uv sync --frozen` step.
@@ -23,6 +24,7 @@ import sys
 import tempfile
 import time
 import venv
+import xml.etree.ElementTree as ET
 
 from filingtime.audit import coverage_report, verify_corpus, verify_fact_provenance, verify_support_files
 from filingtime.experiment import run_experiment
@@ -151,6 +153,176 @@ def replay_experiments(root: Path, work: Path) -> dict:
             "comparison": "Byte-identical generation in a separate directory; original references unchanged"}
 
 
+def _tree_hashes(directory: Path) -> dict[str, str]:
+    return {path.relative_to(directory).as_posix(): digest(path)
+            for path in sorted(directory.rglob("*")) if path.is_file()} if directory.exists() else {}
+
+
+def _recovery_protected_hashes(root: Path, products: tuple[str, ...]) -> dict[str, str]:
+    paths = set(RULE_PATHS) | set(products) | {
+        "data/manifests/sources.jsonl", "data/manifests/filings.jsonl",
+        "data/manifests/rule_freeze.json", "data/manifests/holdout_first_evaluation.json",
+        "data/manifests/holdout_recovery.json", "data/reference/metadata_corrections.json",
+        "src/filingtime/recovery.py",
+    }
+    for relative in ("data/raw", "data/manifests/parsed", "data/manifests/candidates"):
+        paths.update((Path(relative) / name).as_posix() for name in _tree_hashes(root / relative))
+    return {relative: digest(root / relative) for relative in sorted(paths)}
+
+
+def replay_recovery(root: Path, work: Path) -> dict:
+    """Reproduce the original failure, then independently reproduce its repair.
+
+    The unchanged frozen rules are not reinterpreted as a successful untouched
+    holdout. Original data and published repaired products remain read-only.
+    """
+    from filingtime.normalize import normalize_corpus
+    from filingtime.recovery import recover_holdout
+    products = tuple(f"data/processed/holdout_{suffix}" for suffix in
+                     ("facts.jsonl", "normalization.json", "targets.json"))
+    first_path = root / "data/manifests/holdout_first_evaluation.json"
+    first = json.loads(first_path.read_text(encoding="utf-8"))
+    if first.get("status") != "failed_closed" or not first.get("failure"):
+        raise ValueError("Recovery replay requires the preserved original failed evaluation")
+    if first.get("freeze_record_sha256") != digest(root / "data/manifests/rule_freeze.json"):
+        raise ValueError("The first failure does not identify the preserved freeze record")
+    for audit in first.get("conflicting_original_audits", []):
+        if digest(root / audit["path"]) != audit["sha256"]:
+            raise ValueError("Original conflicting audit bytes differ from the first failure receipt")
+    protected = _recovery_protected_hashes(root, products)
+    failure_stage = work / "original-failure-replay"
+    failure_stage.mkdir(parents=True, exist_ok=True)
+    freeze_record = json.loads((root / "data/manifests/rule_freeze.json").read_text(encoding="utf-8"))
+    inputs = set(RULE_PATHS) | set(freeze_record.get("source_manifest_hashes", {})) | set(products) | {"data/manifests/rule_freeze.json"}
+    for relative in sorted(inputs):
+        target = failure_stage / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(root / relative, target)
+    for relative in ("data/manifests/parsed", "data/manifests/candidates"):
+        shutil.copytree(root / relative, failure_stage / relative, dirs_exist_ok=True)
+    before_failed_outputs = _tree_hashes(failure_stage / "data/processed")
+    observed_failure = None
+    with no_network():
+        try:
+            normalize_corpus(failure_stage, "holdout")
+        except Exception as error:
+            observed_failure = {"exception": type(error).__name__, "message": str(error)}
+    if _tree_hashes(failure_stage / "data/processed") != before_failed_outputs:
+        raise ValueError("Original normalization failure changed or created derived output bytes")
+    if observed_failure != first["failure"]:
+        raise ValueError(f"Original frozen failure did not reproduce exactly: expected={first['failure']}, observed={observed_failure}")
+    with no_network():
+        replayed = recover_holdout(root, work / "metadata-recovery-replay", publish=False)
+    repaired_stage = Path(replayed["staging_root"]).resolve()
+    if not repaired_stage.is_relative_to(work.resolve()) or repaired_stage == root.resolve():
+        raise ValueError("Recovery replay did not stay inside isolated scratch storage")
+    receipt = replayed["receipt"]
+    labels = {
+        "status": "passed", "evaluation_status": "post_evaluation_metadata_repaired_replay",
+        "original_frozen_evaluation_status": "failed_closed", "untouched_holdout_claim": False,
+        "inspection_after_first_holdout_failure": True, "human_review_status": "pending",
+    }
+    if any(receipt.get(key) != value for key, value in labels.items()):
+        raise ValueError("Recovery receipt does not explicitly disclose post-evaluation repair")
+    saved_receipt = json.loads((root / "data/manifests/holdout_recovery.json").read_text(encoding="utf-8"))
+    if receipt != saved_receipt:
+        raise ValueError("Recovery replay provenance/annotation receipt differs from the published record")
+    output_hashes = {}
+    for relative in products:
+        recovered = repaired_stage / relative
+        content = recovered.read_bytes()
+        content.decode("utf-8")
+        if b"\r\n" in content:
+            raise ValueError(f"Recovery output is not canonical UTF-8/LF: {relative}")
+        checksum = digest(recovered)
+        if checksum != protected[relative]:
+            raise ValueError(f"Repaired output mismatch; published baseline was not overwritten: {relative}")
+        output_hashes[relative] = checksum
+    if _recovery_protected_hashes(root, products) != protected:
+        raise ValueError("Recovery replay changed original source/audit/freeze or published derived bytes")
+    return {
+        "status": "passed",
+        "original_frozen_evaluation": {"status": "failed_reproduced", "failure": observed_failure,
+                                       "derived_outputs_unchanged": True},
+        "repaired_reproduction": {"status": "passed", "evaluation_status": labels["evaluation_status"],
+                                  "untouched_holdout_claim": False, "artifact_count": len(products),
+                                  "output_sha256": output_hashes},
+        "protected_original_file_count": len(protected),
+        "protected_manifest_sha256": hashlib.sha256(json.dumps(protected, sort_keys=True).encode()).hexdigest(),
+        "recovery_receipt_matches_published": True, "network": "blocked_at_socket_layer",
+        "human_review_status": "pending",
+    }
+
+
+def _verify_generated_figures(staging: Path) -> dict:
+    from PIL import Image
+    png = staging / "docs/assets/research_summary.png"
+    svg = staging / "docs/assets/research_summary.svg"
+    with Image.open(png) as rendered:
+        if rendered.format != "PNG":
+            raise ValueError("Report figure is not a PNG image")
+        rendered.verify()
+    with Image.open(png) as rendered:
+        width, height = rendered.size
+        if width < 640 or height < 360:
+            raise ValueError("Report PNG dimensions are too small for the declared figure")
+        if not any(low < high for low, high in rendered.convert("RGB").getextrema()):
+            raise ValueError("Report PNG is a blank uniform image")
+    vector = ET.parse(svg).getroot()
+    if vector.tag != "{http://www.w3.org/2000/svg}svg" or len(vector) == 0:
+        raise ValueError("Report SVG is empty or has the wrong document root")
+    box = [float(value) for value in vector.get("viewBox", "").split()]
+    if len(box) != 4 or box[2] <= 0 or box[3] <= 0:
+        raise ValueError("Report SVG has no usable viewBox")
+    return {
+        "png": {"width": width, "height": height, "bytes": png.stat().st_size, "sha256": digest(png)},
+        "svg": {"view_box": box, "bytes": svg.stat().st_size, "sha256": digest(svg)},
+        "comparison": "Figures must decode, have usable dimensions, and contain content; platform font/rendering differences are not a byte-equality failure.",
+    }
+
+
+def replay_report(root: Path, work: Path) -> dict:
+    """Regenerate the report from copied inputs without overwriting references."""
+    from filingtime.report import build_report
+    artifacts = ("docs/REPORT.md", "data/results/source_coverage.json", "data/results/source_version_changes.csv")
+    figures = ("docs/assets/research_summary.png", "docs/assets/research_summary.svg")
+    expected = {relative: digest(root / relative) for relative in artifacts}
+    original_figures = {relative: digest(root / relative) for relative in figures}
+    staging = work / "report-replay"
+    staging.mkdir(parents=True, exist_ok=True)
+
+    def ignore_generated(directory: str, names: list[str]) -> set[str]:
+        directory_path = Path(directory)
+        if directory_path == root / "data/results":
+            return set(names) & {"source_coverage.json", "source_version_changes.csv"}
+        if directory_path == root / "data/processed":
+            return set(names) & {"stores"}
+        if directory_path == root / "data":
+            return set(names) & {"cache"}
+        return set()
+
+    shutil.copytree(root / "data", staging / "data", dirs_exist_ok=True, ignore=ignore_generated)
+    for relative in (*RULE_PATHS, "src/filingtime/recovery.py"):
+        destination = staging / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(root / relative, destination)
+    shutil.copytree(root / "src/filingtime/_vendor", staging / "src/filingtime/_vendor", dirs_exist_ok=True)
+    # Matplotlib's font cache belongs in explicit scratch storage, not HOME.
+    os.environ["MPLCONFIGDIR"] = str(work / "matplotlib-cache")
+    with no_network():
+        build_report(staging)
+    mismatches = [relative for relative, checksum in expected.items()
+                  if not (staging / relative).is_file() or digest(staging / relative) != checksum]
+    changed_baselines = [relative for relative, checksum in {**expected, **original_figures}.items()
+                         if digest(root / relative) != checksum]
+    if mismatches or changed_baselines:
+        raise ValueError(f"Report replay mismatch; baselines were not overwritten. Different outputs={mismatches}, changed baselines={changed_baselines}")
+    rendered = _verify_generated_figures(staging)
+    return {"status": "passed", "artifact_count": len(expected), "reference_sha256": expected,
+            "figures": rendered, "network": "blocked_at_socket_layer",
+            "comparison": "Report Markdown, source coverage and version-change ledger are byte-identical; original text and figure references are unchanged"}
+
+
 def check_cli(root: Path) -> dict:
     prefix = [sys.executable, "-m", "filingtime.cli"]
     demo = json.loads(run(prefix + ["demo", "--root", str(root)], cwd=root).stdout)
@@ -256,6 +428,7 @@ def main() -> int:
     # create an implicit cache in the user's home while checking the project.
     os.environ.setdefault("UV_CACHE_DIR", str(work_parent / "uv-cache"))
     os.environ.setdefault("PIP_CACHE_DIR", str(work_parent / "pip-cache"))
+    os.environ["MPLCONFIGDIR"] = str(work / "matplotlib-cache")
     tempfile.tempdir = str(temporary)
     receipt = {"status": "running", "started_at": datetime.now(timezone.utc).isoformat(), "checks": {}}
     started = time.monotonic()
@@ -268,7 +441,9 @@ def main() -> int:
         tests = run([sys.executable, "-m", "pytest", "-q", "--basetemp", str(work / "pytest")], cwd=root)
         receipt["checks"]["tests"] = {"status": "passed", "output": tests.stdout.strip()}
         for name, function in (
+            ("recovery", lambda: replay_recovery(root, work)),
             ("experiments", lambda: replay_experiments(root, work)),
+            ("report", lambda: replay_report(root, work)),
             ("cli", lambda: check_cli(root)),
             ("parquet", lambda: check_store(facts, work)),
             ("parser", lambda: check_parser(root, work, args.reparse)),
@@ -277,7 +452,7 @@ def main() -> int:
             print(f"Checking {name}...", flush=True)
             receipt["checks"][name] = function()
         receipt["status"] = "passed"
-    except (OSError, ValueError, RuntimeError) as error:
+    except (OSError, ValueError, RuntimeError, ET.ParseError) as error:
         receipt["status"] = "failed"
         receipt["error"] = str(error)
     receipt["elapsed_seconds"] = round(time.monotonic() - started, 3)

@@ -127,6 +127,7 @@ def _reproduction_fixture(root):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("synthetic rule bytes\n", encoding="utf-8")
         hashes[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+    (root / "src/filingtime/recovery.py").write_text("synthetic recovery source\n", encoding="utf-8")
     freeze = root / "data/manifests/rule_freeze.json"
     freeze.parent.mkdir(parents=True, exist_ok=True)
     source_hashes = {}
@@ -184,3 +185,135 @@ def test_reproduction_refuses_changed_frozen_source_manifest(tmp_path):
     source.write_text('{"synthetic_changed": true}\n', encoding="utf-8", newline="\n")
     with pytest.raises(ValueError, match="unchanged frozen rules"):
         module.replay_experiments(root, tmp_path / "work")
+
+
+def _write_synthetic_report(root, *, corrupt=False):
+    from PIL import Image
+    report = root / "docs/REPORT.md"
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text("synthetic corrupted report\n" if corrupt else "synthetic report\n", encoding="utf-8", newline="\n")
+    results = root / "data/results"
+    results.mkdir(parents=True, exist_ok=True)
+    (results / "source_coverage.json").write_text('{}\n', encoding="utf-8", newline="\n")
+    (results / "source_version_changes.csv").write_text("synthetic,column\n", encoding="utf-8", newline="\n")
+    figures = root / "docs/assets"
+    figures.mkdir(parents=True, exist_ok=True)
+    picture = Image.new("RGB", (800, 450), "white")
+    picture.putpixel((0, 0), (0, 0, 0))
+    picture.save(figures / "research_summary.png")
+    (figures / "research_summary.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><rect width="800" height="450" fill="white" /></svg>', encoding="utf-8")
+
+
+def test_report_replay_checks_text_and_decodes_figures(tmp_path, monkeypatch):
+    from filingtime import report
+    root = tmp_path / "reference"
+    module = _reproduction_fixture(root)
+    _write_synthetic_report(root)
+    monkeypatch.setattr(report, "build_report", _write_synthetic_report)
+    result = module.replay_report(root, tmp_path / "work")
+    assert result["status"] == "passed" and result["artifact_count"] == 3
+    assert result["figures"]["png"]["width"] == 800
+    assert result["figures"]["svg"]["view_box"] == [0.0, 0.0, 800.0, 450.0]
+
+
+def test_report_replay_tampering_cannot_overwrite_baseline(tmp_path, monkeypatch):
+    from filingtime import report
+    root = tmp_path / "reference"
+    module = _reproduction_fixture(root)
+    _write_synthetic_report(root)
+    before = (root / "docs/REPORT.md").read_bytes()
+    monkeypatch.setattr(report, "build_report", lambda path: _write_synthetic_report(path, corrupt=True))
+    with pytest.raises(ValueError, match="Report replay mismatch; baselines were not overwritten"):
+        module.replay_report(root, tmp_path / "work")
+    assert (root / "docs/REPORT.md").read_bytes() == before
+
+
+def _recovery_replay_fixture(root, monkeypatch, *, failure_mode="expected", repair_mode="exact"):
+    """Synthetic adapter faults; the real recovery module has its own source tests."""
+    from filingtime import normalize, recovery
+    module = _reproduction_fixture(root)
+    products = tuple(f"data/processed/holdout_{suffix}" for suffix in
+                     ("facts.jsonl", "normalization.json", "targets.json"))
+    (root / products[1]).write_text('[]\n', encoding="utf-8", newline="\n")
+    for relative in ("data/raw", "data/manifests/candidates", "data/manifests/parsed", "data/reference"):
+        (root / relative).mkdir(parents=True, exist_ok=True)
+    (root / "data/raw/synthetic.xml").write_text("<synthetic/>", encoding="utf-8")
+    audit = root / "data/manifests/parsed/synthetic.json"
+    audit.write_text('{"synthetic":true}\n', encoding="utf-8", newline="\n")
+    (root / "data/manifests/candidates/synthetic.jsonl").write_text('{}\n', encoding="utf-8", newline="\n")
+    (root / "data/reference/metadata_corrections.json").write_text('{"synthetic":true}\n', encoding="utf-8", newline="\n")
+    first = {
+        "status": "failed_closed", "failure": {"exception": "ValueError", "message": "synthetic fiscal-year conflict"},
+        "freeze_record_sha256": hashlib.sha256((root / "data/manifests/rule_freeze.json").read_bytes()).hexdigest(),
+        "conflicting_original_audits": [{"path": audit.relative_to(root).as_posix(), "sha256": hashlib.sha256(audit.read_bytes()).hexdigest()}],
+    }
+    (root / "data/manifests/holdout_first_evaluation.json").write_text(json.dumps(first), encoding="utf-8")
+    receipt = {
+        "status": "passed", "evaluation_status": "post_evaluation_metadata_repaired_replay",
+        "original_frozen_evaluation_status": "failed_closed", "untouched_holdout_claim": False,
+        "inspection_after_first_holdout_failure": True, "human_review_status": "pending",
+    }
+    (root / "data/manifests/holdout_recovery.json").write_text(json.dumps(receipt), encoding="utf-8")
+
+    def original_normalize(stage, split):
+        assert stage != root and split == "holdout"
+        if failure_mode == "unexpected_success":
+            return {}
+        if failure_mode == "wrong_exception":
+            raise RuntimeError("synthetic fiscal-year conflict")
+        if failure_mode == "changed_output":
+            (stage / products[0]).write_text("synthetic overwritten output", encoding="utf-8")
+        raise ValueError("synthetic fiscal-year conflict")
+
+    def repaired(source_root, work_dir, *, publish=False):
+        assert source_root == root and publish is False
+        stage = work_dir / "synthetic-repaired"
+        for relative in products:
+            destination = stage / relative
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            # The real recovery canonicalizes only newly derived products.
+            destination.write_text((root / relative).read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
+        if repair_mode == "changed_output":
+            (stage / products[0]).write_text("synthetic bad recovery", encoding="utf-8")
+        labels = dict(receipt)
+        if repair_mode == "false_untouched_claim":
+            labels["untouched_holdout_claim"] = True
+        return {"staging_root": str(stage), "receipt": labels}
+
+    # Canonicalize the synthetic repaired baseline exactly as the real path does.
+    for relative in products:
+        text = (root / relative).read_text(encoding="utf-8")
+        (root / relative).write_text(text, encoding="utf-8", newline="\n")
+    monkeypatch.setattr(normalize, "normalize_corpus", original_normalize)
+    monkeypatch.setattr(recovery, "recover_holdout", repaired)
+    return module
+
+
+def test_recovery_replay_distinguishes_original_failure_from_repaired_pass(tmp_path, monkeypatch):
+    root = tmp_path / "reference"
+    module = _recovery_replay_fixture(root, monkeypatch)
+    result = module.replay_recovery(root, tmp_path / "work")
+    assert result["original_frozen_evaluation"]["status"] == "failed_reproduced"
+    assert result["repaired_reproduction"]["status"] == "passed"
+    assert result["repaired_reproduction"]["untouched_holdout_claim"] is False
+    assert result["recovery_receipt_matches_published"] is True
+
+
+@pytest.mark.parametrize("failure_mode", ["unexpected_success", "wrong_exception", "changed_output"])
+def test_recovery_replay_requires_exact_original_failure_without_writes(tmp_path, monkeypatch, failure_mode):
+    root = tmp_path / "reference"
+    module = _recovery_replay_fixture(root, monkeypatch, failure_mode=failure_mode)
+    before = (root / "data/processed/holdout_facts.jsonl").read_bytes()
+    with pytest.raises(ValueError):
+        module.replay_recovery(root, tmp_path / "work")
+    assert (root / "data/processed/holdout_facts.jsonl").read_bytes() == before
+
+
+@pytest.mark.parametrize("repair_mode", ["changed_output", "false_untouched_claim"])
+def test_recovery_replay_rejects_changed_products_or_false_untouched_claim(tmp_path, monkeypatch, repair_mode):
+    root = tmp_path / "reference"
+    module = _recovery_replay_fixture(root, monkeypatch, repair_mode=repair_mode)
+    before = (root / "data/processed/holdout_facts.jsonl").read_bytes()
+    with pytest.raises(ValueError):
+        module.replay_recovery(root, tmp_path / "work")
+    assert (root / "data/processed/holdout_facts.jsonl").read_bytes() == before

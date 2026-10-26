@@ -6,7 +6,7 @@ This document describes what the project checks and what the evidence can suppor
 
 FilingTime reconstructs annual consolidated revenue available within a specified set of SEC 10-K and 10-K/A filings under a fixed availability convention. It does not reconstruct every public disclosure, establish when investors first learned the figure, prove the issuer's economic facts, or demonstrate investment returns.
 
-The corpus targets 12 nonfinancial US-GAAP issuers, fiscal years 2019–2024, with comparison periods where needed, and filings accepted no later than 2025-12-31. Eight issuers are development cases; four are a held-out evaluation set. Their identities, selection rationale, split, cutoff, parser version, mapping rules, and code revision must be recorded before evaluation. A targeted stress case is not a random sample and cannot establish a market-wide error rate.
+The corpus targets 12 nonfinancial US-GAAP issuers, fiscal years 2019–2024, with comparison periods where needed, and filings accepted no later than 2025-12-31. Eight issuers are development cases; four were initially reserved for evaluation. Their identities, selection rationale, split, cutoff, parser version, mapping rules, and code revision were recorded before evaluation. A targeted stress case is not a random sample and cannot establish a market-wide error rate.
 
 ## Clocks and immutable inputs
 
@@ -39,6 +39,8 @@ Use [ANNOTATION_GUIDE.md](ANNOTATION_GUIDE.md) to record decisions against origi
 4. If evaluation findings motivate changes, retain the first evaluation. Identify subsequent runs as post-evaluation revisions, not untouched holdout performance.
 5. Report raw-source missingness separately from unsupported semantics and extraction failures.
 
+The first frozen evaluation in this release **failed closed** at a conflicting Foot Locker fiscal-year label, before normalization outputs were written. The [first-attempt receipt](../data/manifests/holdout_first_evaluation.json) remains the original outcome. Source text supports a separately recorded fiscal-year metadata correction; the [repair description](POST_EVALUATION_REPAIR.md) and [recovery receipt](../data/manifests/holdout_recovery.json) document the subsequent path. Published artifacts retaining the `holdout` split name are **post-evaluation metadata-repaired replay** results from the originally reserved issuers. They are not untouched holdout performance. The original source bytes, audits and frozen computational rules remain unchanged; this does not negate the post-evaluation inspection and annotation. The target-year correction can affect target membership and ranking groups even though it does not edit financial amounts. All planned companies and company-years remain in coverage accounting.
+
 An identical number in two contexts is not sufficient evidence that both denote consolidated annual revenue. Conversely, a different concept name does not by itself establish a change in economic meaning. Do not infer that every 10-K/A changes financial statements, or that a normal later 10-K cannot revise comparative periods.
 
 ## Three-mode experiment
@@ -57,11 +59,11 @@ The [pre-evaluation clarification](PROTOCOL_AMENDMENT_01.md) removes permanent r
 
 Consequently, `period_end` versus PIT must have zero revenue/growth changes and zero rank changes **on common usable observations**. This is a control implication, not evidence that premature use is harmless. Its timing defect appears in future-source use and baseline-only usable queries, which are outside the paired-usable denominator. Common-set ranking does not measure how early disclosure changes the composition of the available universe. The `latest` comparison measures later-version backfilling and retains its separate numeric-change diagnostics.
 
-Growth needs two compatible annual periods from the same filing. Unit, entity scope and accounting basis must agree; the previous period must be the immediately preceding comparable fiscal year. A same-filing comparative pair does not eliminate the need to inspect restatement, discontinued-operation and policy notes. Do not splice unrelated periods or use a later prior-year number merely to complete a denominator. Zero prior revenue yields an undefined growth result and an explicit reason.
+Growth needs two adjacent annual periods from the same filing, with equal currency, statement basis, concept namespace and concept local name, and consolidated entity scope. Different XML prefixes for the same namespace/local name are equivalent; different concepts are not silently treated as accounting synonyms. These structural checks do not establish unchanged accounting policy or constant business scope. A same-filing comparative pair still requires inspection of restatement, discontinued-operation and policy notes for an economic interpretation. Do not splice unrelated periods or use a later prior-year number merely to complete a denominator. Zero prior revenue yields an undefined growth result and an explicit reason.
 
 ## Metrics and denominators
 
-Publish integer numerators and denominators alongside percentages, for both development and held-out samples. A zero denominator is `not applicable`, never 0% success or 100% accuracy.
+Publish integer numerators and denominators alongside percentages, separately for development and the metadata-repaired replay of the originally held-out issuers. Preserve the first frozen failure as a distinct outcome. A zero denominator is `not applicable`, never 0% success or 100% accuracy.
 
 | Metric | Numerator | Denominator |
 |---|---|---|

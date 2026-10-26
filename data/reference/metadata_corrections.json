@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "created_after_first_evaluation": true,
+  "untouched_holdout_claim": false,
+  "annotation_origin": "independent_ai_source_review",
+  "human_review_status": "pending",
+  "corrections": [
+    {
+      "accession": "0000850209-20-000007",
+      "field": "fiscal_year_focus",
+      "original_value": "2020",
+      "corrected_value": "2019",
+      "audit_path": "data/manifests/parsed/0000850209-20-000007.json",
+      "audit_sha256": "237a57819b634228ee0e1832551df4341db8b79a74ab979bd3bbe87c07fa684e",
+      "evidence": [
+        {
+          "source_url": "https://www.sec.gov/Archives/edgar/data/850209/000085020920000007/fl-20200201x10k.htm",
+          "archive_path": "data/raw/0000850209/0000850209-20-000007/fl-20200201x10k.htm.gz",
+          "sha256": "b8ce183621409d107467e66211848dad4df6f188218c22fe1440d682f684fe01",
+          "anchor": "#Tb_WtbE2IsyRECi7wwr8E8f0w",
+          "expected_text": "Fiscal year 2019 and fiscal year 2018 represented the 52 weeks ended February 1, 2020"
+        }
+      ],
+      "reason": "The original DEI field says 2020, while this same filing explicitly identifies the fiscal year ended 2020-02-01 as fiscal year 2019 in its FiscalPeriod narrative. This is a source-verified derived target-label correction after the first frozen evaluation failed. Raw DEI, original audits, revenue facts, periods, availability times and frozen rules remain unchanged."
+    }
+  ]
+}

@@ -16,10 +16,39 @@ from .models import load_facts
 
 LABELS = {"period_end": "Period-end baseline", "latest": "Latest-value baseline", "pit": "Point in time"}
 MODES = ("period_end", "latest", "pit")
+SPLIT_LABELS = {"development": "Development", "holdout": "Former holdout (repaired)"}
 
 
 def _percent(value: float | None) -> str:
     return "N/A" if value is None else f"{100 * value:.2f}%"
+
+
+def _verified_recovery(root: Path) -> dict:
+    """Reporting must not hide the first failure or reuse stale repair evidence."""
+    receipt = json.loads((root / "data/manifests/holdout_recovery.json").read_text(encoding="utf-8"))
+    if (receipt.get("status") != "passed"
+            or receipt.get("evaluation_status") != "post_evaluation_metadata_repaired_replay"
+            or receipt.get("original_frozen_evaluation_status") != "failed_closed"
+            or receipt.get("untouched_holdout_claim") is not False
+            or receipt.get("inspection_after_first_holdout_failure") is not True):
+        raise ValueError("Recovery receipt must disclose the failed original evaluation and repaired replay")
+    required_inputs = {"data/manifests/holdout_first_evaluation.json",
+                       "data/reference/metadata_corrections.json", "src/filingtime/recovery.py"}
+    required_outputs = {f"data/processed/holdout_{suffix}" for suffix in
+                        ("facts.jsonl", "normalization.json", "targets.json")}
+    if (not required_inputs <= {r["path"] for r in receipt.get("input_files", [])}
+            or {r["path"] for r in receipt.get("output_files", [])} != required_outputs):
+        raise ValueError("Recovery receipt does not cover the required inputs and outputs")
+    for record in receipt["input_files"] + receipt["output_files"]:
+        path = (root / record["path"]).resolve()
+        if not path.is_relative_to(root) or not path.is_file():
+            raise ValueError("Recovery receipt references an unavailable input or output")
+        if hashlib.sha256(path.read_bytes()).hexdigest() != record["sha256"]:
+            raise ValueError(f"Stale recovery receipt: {record['path']}")
+    original = json.loads((root / "data/manifests/holdout_first_evaluation.json").read_text(encoding="utf-8"))
+    if original.get("status") != "failed_closed":
+        raise ValueError("Original frozen evaluation failure is not preserved")
+    return receipt
 
 
 def version_changes(root: Path) -> list[dict]:
@@ -83,7 +112,7 @@ def _figure(summaries: dict, destination: Path) -> None:
             ax.set_yticks([0, 25, 50, 75, 100], ["0%", "25%", "50%", "75%", "100%"])
             ax.set_axisbelow(True)
             ax.grid(axis="y", color="#e5e9ec")
-            ax.set_title(f"{split.title()} · {title}", loc="left", fontsize=10, pad=12)
+            ax.set_title(f"{SPLIT_LABELS[split]}\n{title}", loc="left", fontsize=10, pad=12)
             for bar, value in zip(bars, values):
                 ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 2,
                         "N/A" if value is None else f"{value * 100:.1f}%", ha="center", fontsize=10)
@@ -99,6 +128,7 @@ def build_report(root: str | Path) -> dict:
     root = Path(root).resolve()
     if check_freeze(root)["status"] != "unchanged":
         raise ValueError("Held-out reporting requires unchanged frozen rules")
+    recovery = _verified_recovery(root)
     summaries = {split: json.loads((root / f"data/results/{split}_summary.json").read_text(encoding="utf-8"))
                  for split in ("development", "holdout")}
     for summary in summaries.values():
@@ -132,6 +162,10 @@ def build_report(root: str | Path) -> dict:
     rows = [
         "# FilingTime research report", "",
         "This report is generated from the committed experiment summaries. It evaluates source timing and revenue-feature construction, not investment performance.", "",
+        "## Evaluation status: original failure, then repaired replay", "",
+        "**The first frozen evaluation failed closed before normalization outputs were written.** Foot Locker's fiscal-year label conflicted across two filings. The [original failure receipt](../data/manifests/holdout_first_evaluation.json) remains the result of that first attempt.", "",
+        f"Published results for the four originally reserved issuers have status **{recovery['evaluation_status']}**, with **{len(recovery['corrections'])}** documented metadata correction(s). They are **not untouched holdout results**. The report verifies the [recovery receipt](../data/manifests/holdout_recovery.json) against its current input and derived-output hashes before rendering these numbers. See the [source evidence and repair procedure](POST_EVALUATION_REPAIR.md).", "",
+        "Original filing bytes, parsed audits and frozen computational rules are preserved. An unchanged rule hash proves byte identity; it does not undo the post-evaluation inspection and annotation. The source-supported fiscal-year correction changes target metadata, not financial amounts, but can affect target membership and ranking groups. Artifact filenames retain the split name `holdout`; tables and figures label it as former holdout, repaired.", "",
         "## Research question", "",
         "At a historical query time, which annual consolidated revenue version was allowed within the specified SEC annual-filing collection? How do premature use and later-version backfilling change the resulting feature?", "",
         "The source window contains 10-K and 10-K/A filings accepted through 2025-12-31T23:59:59Z. The research availability convention is SEC acceptance plus 24 elapsed hours. Earlier 8-Ks and earnings announcements are outside scope. This is not a claim of first public knowledge.", "",
@@ -141,14 +175,14 @@ def build_report(root: str | Path) -> dict:
         "|---|---:|---:|---:|---:|---:|",
     ]
     for split, record in coverage.items():
-        rows.append(f"| {split} | {record['planned_companies']} | {record['planned_company_years']} | {record['identified_target_company_years']} | {len(record['missing_company_years'])} | {record['collected_filings']} / {record['parsed_filings']} |")
+        rows.append(f"| {SPLIT_LABELS[split]} | {record['planned_companies']} | {record['planned_company_years']} | {record['identified_target_company_years']} | {len(record['missing_company_years'])} | {record['collected_filings']} / {record['parsed_filings']} |")
     rows += ["", "Company-year identification is not accepted-fact accuracy. Any missing company-year remains visible in [source_coverage.json](../data/results/source_coverage.json). Query metrics below describe identified targets; they must not hide this upstream coverage denominator.", "",
              "## Separate extraction cross-check", "",
              "The SEC Companyfacts snapshot is used only for a separate extraction comparison. Matching requires the same issuer, accession, concept namespace/local name, period and unit. It does not supply query values and is not a historical API snapshot or independent economic ground truth.", "",
              "| Split | Unique admitted source facts | Exact matches | Numeric mismatches | Not comparable / outside API coverage |",
              "|---|---:|---:|---:|---:|"]
     for split, check in crosschecks.items():
-        rows.append(f"| {split} | {check['unique_accepted_facts']} | {check['exact_match_count']} | {check['status_counts'].get('numeric_mismatch', 0)} | {check['unique_accepted_facts'] - check['comparable_count']} |")
+        rows.append(f"| {SPLIT_LABELS[split]} | {check['unique_accepted_facts']} | {check['exact_match_count']} | {check['status_counts'].get('numeric_mismatch', 0)} | {check['unique_accepted_facts'] - check['comparable_count']} |")
     rows += ["", "## Controlled comparison", "",
              "All modes use the same company-period-query keys and growth formula. Period-end mode brings only the first disclosure back to the economic period end; later revisions keep their actual availability. Latest mode backfills the final collected version from the first original availability date. PIT selects only eligible versions.", "",
              "![Timing and comparability diagnostics](assets/research_summary.png)", "",
@@ -157,8 +191,30 @@ def build_report(root: str | Path) -> dict:
     for split, summary in summaries.items():
         for mode in MODES:
             rev, growth = summary["modes"][mode]["revenue"], summary["modes"][mode]["growth"]
-            rows.append(f"| {split} | {LABELS[mode]} | {rev['usable_count']} / {rev['total_queries']} | {rev['future_provenance_count']} / {rev['future_provenance_denominator']} | {growth['usable_count']} / {growth['total_queries']} |")
+            rows.append(f"| {SPLIT_LABELS[split]} | {LABELS[mode]} | {rev['usable_count']} / {rev['total_queries']} | {rev['future_provenance_count']} / {rev['future_provenance_denominator']} | {growth['usable_count']} / {growth['total_queries']} |")
     rows += ["", "A later source can repeat the same number. Future provenance is therefore measured separately from numeric change. PIT is required to have zero future-source use; this invariant alone does not establish semantic accounting accuracy.", "",
+             "## Missing inputs and explicit refusals", "",
+             "Refused means an ambiguous or rejected result. Missing is reported separately and can include a disclosure that is not yet available. None of these outcomes is a zero financial value. Every fraction below uses all scheduled queries for that split, mode and feature, including nonusable outcomes.", "",
+             "| Split | Mode | Feature | Missing / all queries | Refused / all queries | Refusal detail: ambiguous; rejected |",
+             "|---|---|---|---:|---:|---:|"]
+    for split, summary in summaries.items():
+        for mode in MODES:
+            for feature in ("revenue", "growth"):
+                metric = summary["modes"][mode][feature]
+                status, denominator = metric["status_counts"], metric["total_queries"]
+                refused = status["ambiguous"] + status["rejected"]
+                rows.append(f"| {SPLIT_LABELS[split]} | {LABELS[mode]} | {feature} | {status['missing']} / {denominator} | {refused} / {denominator} | {status['ambiguous']}; {status['rejected']} |")
+    rows += ["", "Detailed reasons remain in the [development summary](../data/results/development_summary.json) and [metadata-repaired replay summary](../data/results/holdout_summary.json). A refusal is a coverage outcome, not evidence that the issuer's filing is erroneous.", "",
+             "## Availability outside the common usable set", "",
+             "Each row partitions the same scheduled query keys into four mutually exclusive groups. Baseline-only results remain visible here rather than disappearing from the paired numeric and rank comparisons.", "",
+             "| Split | Baseline | Feature | Both usable | Baseline only | PIT only | Neither usable | All query keys |",
+             "|---|---|---|---:|---:|---:|---:|---:|"]
+    for split, summary in summaries.items():
+        for baseline in ("period_end", "latest"):
+            for feature in ("revenue", "growth"):
+                paired = summary["comparisons_to_pit"][baseline][feature]
+                rows.append(f"| {SPLIT_LABELS[split]} | {LABELS[baseline]} | {feature} | {paired['both_usable_count']} | {paired['baseline_only_usable_count']} | {paired['pit_only_usable_count']} | {paired['neither_usable_count']} | {paired['total_query_keys']} |")
+    rows += ["",
              "## Differences on common usable observations", "",
              "| Split | Baseline | Changed revenue / paired usable | Changed growth / paired usable | Growth direction flips / paired usable | Changed ranks / common memberships |",
              "|---|---|---:|---:|---:|---:|"]
@@ -167,16 +223,16 @@ def build_report(root: str | Path) -> dict:
             rev = summary["comparisons_to_pit"][baseline]["revenue"]
             growth = summary["comparisons_to_pit"][baseline]["growth"]
             rank = summary["rankings"][baseline]
-            rows.append(f"| {split} | {LABELS[baseline]} | {rev['numeric_changed_count']} / {rev['numeric_changed_denominator']} | {growth['numeric_changed_count']} / {growth['numeric_changed_denominator']} | {growth['direction_changed_count']} / {growth['direction_changed_denominator']} | {rank['changed_memberships']} / {rank['common_memberships']} |")
+            rows.append(f"| {SPLIT_LABELS[split]} | {LABELS[baseline]} | {rev['numeric_changed_count']} / {rev['numeric_changed_denominator']} | {growth['numeric_changed_count']} / {growth['numeric_changed_denominator']} | {growth['direction_changed_count']} / {growth['direction_changed_denominator']} | {rank['changed_memberships']} / {rank['common_memberships']} |")
     rows += ["", "The period-end intervention changes only the first availability timestamp. Once both it and PIT are usable, their values should match. Its error is visible in premature source use and baseline-only usable observations, not a nonzero paired numeric difference. The pre-evaluation [protocol clarification](PROTOCOL_AMENDMENT_01.md) and superseded exploration remain available.", "",
-             "A rank membership is one company in one fiscal-year/query comparison, not an independent observation. Ranks use only the common usable set (at least two companies), with average ranks for exact ties. Fiscal calendars differ, so this is a mechanical sensitivity diagnostic rather than a synchronized stock-selection strategy.", "",
+             "A rank membership is one company in one fiscal-year/query comparison, not an independent observation. Ranks use only the common usable set (at least two companies), with average ranks for exact ties. They do not measure how premature availability changes the composition of the available universe. Fiscal calendars differ, so this is a mechanical sensitivity diagnostic rather than a synchronized stock-selection strategy.", "",
              "## Source-version changes", "",
              f"The collection contains **{len(changes)}** transitions with changed admitted revenue values for target fiscal years. The complete transition ledger is [source_version_changes.csv](../data/results/source_version_changes.csv). These are source-version changes, not automatically accounting restatements or vendor errors.", "",
              "| Split | Company / FY | Earlier value (USD) | Later value (USD) | Source pair |", "|---|---|---:|---:|---|"]
     for row in sorted(changes, key=lambda r: Decimal(r["absolute_change"]), reverse=True)[:8]:
         earlier = row["old_source"] + (row["old_anchor"] if row["old_anchor"].startswith("#") else "")
         later = row["new_source"] + (row["new_anchor"] if row["new_anchor"].startswith("#") else "")
-        rows.append(f"| {row['split']} | {row['ticker']} / {row['fiscal_year']} | {Decimal(row['old_value']):,.0f} | {Decimal(row['new_value']):,.0f} | [earlier]({earlier}) · [later]({later}) |")
+        rows.append(f"| {SPLIT_LABELS[row['split']]} | {row['ticker']} / {row['fiscal_year']} | {Decimal(row['old_value']):,.0f} | {Decimal(row['new_value']):,.0f} | [earlier]({earlier}) · [later]({later}) |")
     if not changes:
         rows.append("| — | No admitted numeric version change found | — | — | This does not imply no timing leakage |")
     checks = read_jsonl(root / "data/reference/source_checks.jsonl")
@@ -199,4 +255,6 @@ def build_report(root: str | Path) -> dict:
     report.write_text("\n".join(rows), encoding="utf-8", newline="\n")
     return {"report": "docs/REPORT.md", "figure": "docs/assets/research_summary.png",
             "version_change_transitions": len(changes), "source_checks": len(checks),
-            "human_review_status": "pending", "freeze_status": freeze["status"]}
+            "human_review_status": "pending", "freeze_status": freeze["status"],
+            "original_frozen_evaluation_status": recovery["original_frozen_evaluation_status"],
+            "evaluation_status": recovery["evaluation_status"], "untouched_holdout_claim": False}

@@ -1,0 +1,618 @@
+{
+  "status": "passed",
+  "started_at": "2026-10-26T16:39:22.757839+00:00",
+  "checks": {
+    "inputs": {
+      "corpus": {
+        "status": "passed",
+        "source_files": 800,
+        "unique_urls": 800,
+        "original_bytes": 1178320827,
+        "filing_count": 87,
+        "failures": [],
+        "claim": "Archived bytes match the saved download hashes; this does not prove accounting truth."
+      },
+      "provenance": {
+        "status": "passed",
+        "fact_count": 839,
+        "status_counts": {
+          "accepted": 839
+        },
+        "failures": []
+      },
+      "support_files": {
+        "status": "passed",
+        "taxonomy_files": 174,
+        "vendor_and_notice_files": 6,
+        "failures": []
+      },
+      "freeze": {
+        "status": "unchanged",
+        "changed": [],
+        "freeze_created_at": "2026-10-26T16:23:03.080956+00:00",
+        "claim": "Rule bytes match the pre-evaluation record"
+      },
+      "coverage": {
+        "development": {
+          "planned_companies": 8,
+          "planned_company_years": 48,
+          "identified_target_company_years": 48,
+          "missing_company_years": [],
+          "collected_filings": 57,
+          "parsed_filings": 57,
+          "unparsed_accessions": [],
+          "parse_status_counts": {
+            "parsed": 57
+          },
+          "filings_with_validation_messages": 0,
+          "note": "Target identification is separate from accepted-revenue or growth-query coverage."
+        },
+        "holdout": {
+          "planned_companies": 4,
+          "planned_company_years": 24,
+          "identified_target_company_years": 24,
+          "missing_company_years": [],
+          "collected_filings": 30,
+          "parsed_filings": 30,
+          "unparsed_accessions": [],
+          "parse_status_counts": {
+            "parsed": 29,
+            "no_revenue_candidates": 1
+          },
+          "filings_with_validation_messages": 0,
+          "note": "Target identification is separate from accepted-revenue or growth-query coverage."
+        }
+      }
+    },
+    "public_source_hygiene": {
+      "status": "passed",
+      "files_checked": 45,
+      "scope": "Project-authored source/docs/tests/workflows; personal-provider email, local drive paths, GitHub token shapes, private-key headers. SEC public originals and third-party vendor text are excluded. This is not an exhaustive secret audit."
+    },
+    "tests": {
+      "status": "passed",
+      "output": "........................................................................ [ 35%]\n........................................................................ [ 71%]\n..........................................................               [100%]\n202 passed in 31.50s"
+    },
+    "recovery": {
+      "status": "passed",
+      "original_frozen_evaluation": {
+        "status": "failed_reproduced",
+        "failure": {
+          "exception": "ValueError",
+          "message": "Conflicting fiscal-year end: ('0000850209', 2020)"
+        },
+        "derived_outputs_unchanged": true
+      },
+      "repaired_reproduction": {
+        "status": "passed",
+        "evaluation_status": "post_evaluation_metadata_repaired_replay",
+        "untouched_holdout_claim": false,
+        "artifact_count": 3,
+        "output_sha256": {
+          "data/processed/holdout_facts.jsonl": "b7f11253659a83e311de817ee572607ac8ee502b04a4049e1bc7d0cf6f884a5a",
+          "data/processed/holdout_normalization.json": "0883de0c069004a45b0cadbaab0aaa9d84e8f2928d50997aee20480504d5b3f8",
+          "data/processed/holdout_targets.json": "1ddaecd510ed055c2ab45436641af48f6349113ee745d719095c74125ac29b67"
+        }
+      },
+      "protected_original_file_count": 1174,
+      "protected_manifest_sha256": "4a6a065f2100790b3f245c3f7af634f2fb6cc9dc521b9f214c7c44bd5158ed3e",
+      "recovery_receipt_matches_published": true,
+      "network": "blocked_at_socket_layer",
+      "human_review_status": "pending"
+    },
+    "experiments": {
+      "status": "passed",
+      "artifact_count": 6,
+      "reference_sha256": {
+        "data/results/development_observations.csv": "93944f7418ad13537d2bb4917d6e202edddda95fa483903c7b7cb977d56c8a98",
+        "data/results/development_rankings.csv": "38f7e23da504afb9f8f94037e2c4a176edea5fc863be89976fae5ef5768c7384",
+        "data/results/development_summary.json": "7fd47a582a6cf4e7c74c22d4b57aa6763a89d645e3dd6f6d4b2457338f99ad4b",
+        "data/results/holdout_observations.csv": "8917ba8445230b9646e72e0a464f9a530db31646482797ec54701beed50b649d",
+        "data/results/holdout_rankings.csv": "51d2368a0d65e12be2e13f9ccd88df5c2816e52aec646eeac6f6c981a09b7ee1",
+        "data/results/holdout_summary.json": "75ced51ab8a86bf8a64982eb9e17b1d0dc2b5ccbdc6851957c4d5a5a6a609870"
+      },
+      "comparison": "Byte-identical generation in a separate directory; original references unchanged"
+    },
+    "report": {
+      "status": "passed",
+      "artifact_count": 3,
+      "reference_sha256": {
+        "docs/REPORT.md": "0b4794b38937565e992669568170121dc11da2da2302686d2543994814de67cd",
+        "data/results/source_coverage.json": "2cbaecacd725bd6b0cbb839bcce9169471eef98dd49742d766139a9ed7531217",
+        "data/results/source_version_changes.csv": "c8122c5e6e88aeb2ce1293d47c4eab3f9afff9cd970b30a341c4d574e522b9d2"
+      },
+      "figures": {
+        "png": {
+          "width": 1980,
+          "height": 1260,
+          "bytes": 144465,
+          "sha256": "3098f09123a2305388fafd04812bc7e5b3b60b549ed6f5069b50e658d17234ec"
+        },
+        "svg": {
+          "view_box": [
+            0.0,
+            0.0,
+            792.0,
+            504.0
+          ],
+          "bytes": 100957,
+          "sha256": "4229886abd377ebb96390bc58f6e43c6afb2c599099fb2ade20f6faa3301d580"
+        },
+        "comparison": "Figures must decode, have usable dimensions, and contain content; platform font/rendering differences are not a byte-equality failure."
+      },
+      "network": "blocked_at_socket_layer",
+      "comparison": "Report Markdown, source coverage and version-change ledger are byte-identical; original text and figure references are unchanged"
+    },
+    "cli": {
+      "status": "passed",
+      "cik": "0000320187",
+      "period_end": "2019-05-31",
+      "source_identity": "Fact-EA297F084C6AE9A41696E58B59833473",
+      "human_review_status": "pending"
+    },
+    "parquet": {
+      "status": "passed",
+      "format": "filingtime-fact-store-v1",
+      "fact_count": 839,
+      "parts": [
+        {
+          "file": "facts-61c88ca4e266f68fb0429e4bab667087ac969751465f09d8312bf857b421eb81.parquet",
+          "sha256": "a0c5a425f9893aa7a9e5df3d97f55addd4b536bebe683deef7885a025651617b",
+          "bytes": 96533
+        }
+      ]
+    },
+    "parser": {
+      "status": "passed",
+      "scope": "all_filings",
+      "network": "blocked_at_socket_layer",
+      "filings": [
+        {
+          "accession": "0001158449-19-000043",
+          "candidates": 23,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001158449-20-000035",
+          "candidates": 26,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001158449-21-000036",
+          "candidates": 11,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001158449-22-000037",
+          "candidates": 3,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001158449-23-000035",
+          "candidates": 3,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001158449-24-000048",
+          "candidates": 3,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001158449-24-000128",
+          "candidates": 3,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001158449-25-000064",
+          "candidates": 18,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320193-19-000119",
+          "candidates": 67,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320193-20-000096",
+          "candidates": 67,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320193-21-000105",
+          "candidates": 57,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320193-22-000108",
+          "candidates": 57,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320193-23-000106",
+          "candidates": 57,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320193-24-000123",
+          "candidates": 57,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320193-25-000079",
+          "candidates": 60,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000018230-19-000034",
+          "candidates": 197,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000018230-20-000056",
+          "candidates": 249,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000018230-21-000063",
+          "candidates": 253,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000018230-22-000050",
+          "candidates": 222,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000018230-23-000011",
+          "candidates": 209,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000018230-24-000009",
+          "candidates": 209,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000018230-25-000008",
+          "candidates": 239,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000909832-19-000019",
+          "candidates": 62,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000909832-20-000017",
+          "candidates": 69,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000909832-21-000014",
+          "candidates": 36,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000909832-22-000021",
+          "candidates": 36,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000909832-23-000042",
+          "candidates": 36,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000909832-24-000049",
+          "candidates": 36,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000909832-25-000101",
+          "candidates": 36,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001558370-19-011614",
+          "candidates": 222,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001558370-20-014436",
+          "candidates": 254,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001558370-21-016864",
+          "candidates": 324,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001558370-22-018703",
+          "candidates": 300,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001558370-23-019812",
+          "candidates": 281,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001558370-24-016169",
+          "candidates": 282,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001104659-25-122321",
+          "candidates": 360,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001558370-19-002753",
+          "candidates": 34,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000850209-20-000007",
+          "candidates": 36,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000850209-21-000003",
+          "candidates": 35,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000850209-22-000003",
+          "candidates": 35,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000850209-23-000006",
+          "candidates": 75,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001437749-24-009866",
+          "candidates": 78,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001437749-25-009620",
+          "candidates": 87,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000040545-19-000014",
+          "candidates": 380,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000040545-20-000009",
+          "candidates": 318,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000040545-21-000011",
+          "candidates": 398,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000040545-22-000008",
+          "candidates": 387,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000040545-23-000023",
+          "candidates": 356,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000040545-24-000027",
+          "candidates": 194,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000040545-25-000015",
+          "candidates": 137,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001500435-19-000013",
+          "candidates": 21,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001500435-20-000013",
+          "candidates": 23,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001500435-21-000020",
+          "candidates": 23,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001500435-22-000016",
+          "candidates": 23,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001500435-23-000021",
+          "candidates": 23,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001500435-24-000021",
+          "candidates": 23,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001628280-25-013046",
+          "candidates": 25,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000047217-19-000071",
+          "candidates": 71,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001206774-20-000632",
+          "candidates": 0,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000047217-20-000045",
+          "candidates": 69,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000047217-21-000060",
+          "candidates": 68,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000047217-22-000068",
+          "candidates": 68,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000047217-23-000075",
+          "candidates": 95,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000047217-23-000100",
+          "candidates": 68,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000047217-24-000080",
+          "candidates": 74,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000047217-25-000071",
+          "candidates": 86,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000021344-19-000014",
+          "candidates": 106,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000021344-20-000006",
+          "candidates": 117,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000021344-21-000008",
+          "candidates": 126,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000021344-22-000009",
+          "candidates": 126,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000021344-23-000011",
+          "candidates": 126,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000021344-24-000009",
+          "candidates": 123,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000021344-25-000011",
+          "candidates": 123,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001564590-19-027952",
+          "candidates": 67,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001564590-20-034944",
+          "candidates": 75,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001564590-21-039151",
+          "candidates": 65,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0001564590-22-026876",
+          "candidates": 65,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000950170-23-035122",
+          "candidates": 68,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000950170-24-087843",
+          "candidates": 71,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000950170-25-100235",
+          "candidates": 70,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320187-19-000051",
+          "candidates": 102,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320187-20-000047",
+          "candidates": 200,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320187-21-000028",
+          "candidates": 281,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320187-22-000038",
+          "candidates": 261,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320187-23-000039",
+          "candidates": 261,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320187-24-000044",
+          "candidates": 246,
+          "arelle_errors": []
+        },
+        {
+          "accession": "0000320187-25-000047",
+          "candidates": 246,
+          "arelle_errors": []
+        }
+      ],
+      "claim": "Candidate facts reproduce from fixed source bytes; existing Arelle warnings are disclosed, not erased or treated as human accounting validation"
+    },
+    "wheel": {
+      "status": "passed",
+      "wheel": "filingtime-0.1.0-py3-none-any.whl",
+      "sha256": "e0866b6bbbfc916504d59cc2937056e833174207d909024d465895b45ec53472",
+      "version": "0.1.0",
+      "scope": "Offline wheel build, clean no-dependency wheel install, core import/query and CLI version; full dependency integration is exercised by the locked environment checks",
+      "build_output": "Building wheel...\nSuccessfully built wheel\\filingtime-0.1.0-py3-none-any.whl\n"
+    }
+  },
+  "elapsed_seconds": 494.437
+}
