@@ -1,0 +1,29 @@
+{
+  "protocol": "FilingTime-v1",
+  "created_at": "2026-10-26T16:23:03.080956+00:00",
+  "git_commit": "04a58fdb4f4b0b66ba64248c05e01cea117e9a91",
+  "rule_hashes": {
+    "src/filingtime/models.py": "9189ffd24ffd8881334bb8a3438272be7f47518e64507e7e1ed6a29d2b189e40",
+    "src/filingtime/engine.py": "9cbba256a0c054ac809fc00dc842bc5a307f31bb9da21885b3c5fd16227341e9",
+    "src/filingtime/normalize.py": "7a0bd4c9c3ea0694c065cf1bfac59ab90938912c0c8b9a7bff04c950bdadaaa2",
+    "src/filingtime/xbrl.py": "67c634e3cc90e3d79124289cfd96507b1063104cdd9177b297b227c4da6c2a9c",
+    "src/filingtime/ingest.py": "5dff5432317a08833183ddeaf54f0620cb98f17afd85714769d448bf690aeb72",
+    "src/filingtime/experiment.py": "499b5f1d4b3be17647c325e6d01ea7546e9858f5ef82a2079a6c111f5a2b0726",
+    "src/filingtime/_vendor/sec_transform/__init__.py": "2296586f945ffd95ab37d3d4147c4e45f42ce4e5f397f61143e053208adefbf1",
+    "src/filingtime/_vendor/sec_transform/text2num.py": "6c9b26354320a2fb34fe380cdc71ff7f8d1cc712811e6b10c661e512f0383409",
+    "data/manifests/sec_transform_vendor.json": "04e920a487feafaee64970150a1917bef555560ba66492581d2c15044f0a86b4",
+    "data/manifests/collection_protocol.json": "eb0d660b7255879aed0b8f7a79127d59441ba14b9ad0cac0949be39b4e214bbd",
+    "data/universe.csv": "37cf81c8a1e7499a9f7b57f9f04588c063f0a7d94367c1a851c9e2333752598a",
+    "docs/PROTOCOL.md": "8c22e0fd0ed999bd5693c2909cc88da99c8fdda8e51aeb6411cb156c1c871929",
+    "docs/PROTOCOL_AMENDMENT_01.md": "21779ebb64add1fd5aeca5a2b1f1d42ace32d31e983d8688e61c0632abab74b9",
+    "uv.lock": "11d9ed1be4e980663d4e4633ac3e4a1be2927faa4329c02dcca7ef95fc1bedc8"
+  },
+  "source_manifest_hashes": {
+    "data/manifests/sources.jsonl": "480a5b766dbb085c9fde312b15c90e26765b4729c9b4b7c94cc05c371a10bbb7",
+    "data/manifests/filings.jsonl": "327bd839238ccedefcd6e4b279f98d0859a61d07ed763f5ee212bd638acb4209"
+  },
+  "development_receipt_sha256": "aaae5d58babfe0d10d097aea8c4ef3d9c6dd331c19fe8be563fdb204756e0678",
+  "development_receipt": "data/manifests/development_validation.json",
+  "holdout_status": "not_parsed_or_inspected_at_freeze",
+  "policy": "Any changed rule is disclosed; post-evaluation fixes do not retain untouched status."
+}
