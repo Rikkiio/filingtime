@@ -1,0 +1,10 @@
+{
+  "cik": "0000021344",
+  "sample_ticker": "KO",
+  "current_sec_name": "COCA COLA CO",
+  "current_sec_tickers": [
+    "KO"
+  ],
+  "checked_at": "2026-10-26T15:38:30Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

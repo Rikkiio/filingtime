@@ -1,0 +1,10 @@
+{
+  "cik": "0000315189",
+  "sample_ticker": "DE",
+  "current_sec_name": "DEERE & CO",
+  "current_sec_tickers": [
+    "DE"
+  ],
+  "checked_at": "2026-10-26T16:01:51Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

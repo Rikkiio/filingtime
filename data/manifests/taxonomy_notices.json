@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://xbrl.fasb.org/terms/TaxonomiesTermsConditions.html",
+    "path": "data/raw/taxonomy/notices/FASB_TaxonomiesTermsConditions.html",
+    "sha256": "5b4bfbe740dc9e447ed9a1d1d51e387141586846815854180fb5bb13804a68b9",
+    "bytes": 50295
+  },
+  {
+    "url": "https://xbrl.fasb.org/terms/SRT_TermsConditions.html",
+    "path": "data/raw/taxonomy/notices/FASB_SRT_TermsConditions.html",
+    "sha256": "6cdb4e29248c0322c37099f5845367f9ea4364b388135e6b4705d9ebeaf288f3",
+    "bytes": 7680
+  }
+]

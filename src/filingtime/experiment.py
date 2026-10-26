@@ -1,8 +1,10 @@
 """Fixed-corpus experiments with explicit paired denominators and tie-aware ranks.
 
 All three modes use identical company/fiscal-year/month-end keys and the engine's
-same growth formula. Rates describe this purposive, repeatedly observed corpus;
-they are not market frequencies, independent samples, or return estimates.
+same growth formula. The period-end mode shifts only the first disclosure event;
+later versions retain their true allowed availability. Rates describe this
+purposive, repeatedly observed corpus; they are not market frequencies,
+independent samples, or return estimates.
 """
 
 from __future__ import annotations
@@ -267,8 +269,10 @@ def evaluate(facts: Iterable[RevenueFact], targets: Iterable[dict], split: str,
         "modes": mode_summary, "comparisons_to_pit": comparisons, "rankings": rank_summary,
         "definitions": {
             "observation": "One target company/fiscal-year and month-end query, repeated once per mode; only completed financial periods are included.",
+            "period_end_mode": "Only the first disclosure event is moved to financial period end. Subsequent versions retain their actual available_at. Once the first disclosure is actually available, selected values and statuses match PIT; the baseline does not keep stale first values.",
+            "latest_mode": "The final version in the fixed corpus is substituted from the original first availability date, isolating later-version backfilling.",
             "future_provenance": "Selected source version available_at is later than as_of; this is distinct from whether its numeric value differs.",
-            "growth": "current / previous - 1, using the same filing, adjacent annual periods, equal unit and accounting basis, and positive denominator.",
+            "growth": "current / previous - 1, using the same filing, adjacent annual periods, equal unit and statement basis, equal concept local name and namespace, and positive denominator. This is a structural comparability rule, not an accounting audit.",
             "comparison_denominator": "Both modes usable on the identical key. Baseline-only, PIT-only, and neither-usable keys are retained separately.",
             "rank": "Within fiscal year and as_of, each baseline is ranked against PIT on their common usable-growth company set, n>=2. Higher growth ranks first; exact ties use average ranks.",
             "rank_membership": "A company occurrence in one evaluated fiscal-year/query/baseline group, not an independent company observation.",
@@ -280,6 +284,7 @@ def evaluate(facts: Iterable[RevenueFact], targets: Iterable[dict], split: str,
             "Different fiscal-year calendars can be grouped by the same year label; rankings are a mechanical sensitivity diagnostic, not economically synchronized investment signals.",
             "The latest selected statement may omit the adjacent prior fiscal year; strict same-filing growth is then refused rather than spliced from an older basis.",
             "A new source version can be future-dated while repeating the same number; future provenance and numeric distortion are reported separately.",
+            "For the timing-only period_end baseline, paired numeric and rank changes are expected to be zero once both modes are usable. Baseline-only availability before the first actual disclosure and future provenance quantify its contamination; common-set comparisons do not measure those missing PIT signals.",
             "Human accounting review remains pending; no independent human agreement rate is reported.",
         ],
     }

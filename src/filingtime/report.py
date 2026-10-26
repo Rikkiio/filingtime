@@ -111,6 +111,13 @@ def build_report(root: str | Path) -> dict:
     coverage = coverage_report(root)
     corpus, support = verify_corpus(root), verify_support_files(root)
     freeze = check_freeze(root)
+    crosschecks = {}
+    for split in ("development", "holdout"):
+        check = json.loads((root / f"data/results/{split}_companyfacts_crosscheck.json").read_text(encoding="utf-8"))["summary"]
+        if hashlib.sha256((root / f"data/processed/{split}_facts.jsonl").read_bytes()).hexdigest() != check["input_facts_sha256"]:
+            raise ValueError("Companyfacts cross-check refers to stale normalized facts")
+        crosschecks[split] = check
+    injections = json.loads((root / "data/results/synthetic_injection_benchmark.json").read_text(encoding="utf-8"))
     changes = version_changes(root)
     output = root / "data/results"
     (output / "source_coverage.json").write_text(json.dumps(coverage, indent=2) + "\n", encoding="utf-8", newline="\n")
@@ -136,8 +143,14 @@ def build_report(root: str | Path) -> dict:
     for split, record in coverage.items():
         rows.append(f"| {split} | {record['planned_companies']} | {record['planned_company_years']} | {record['identified_target_company_years']} | {len(record['missing_company_years'])} | {record['collected_filings']} / {record['parsed_filings']} |")
     rows += ["", "Company-year identification is not accepted-fact accuracy. Any missing company-year remains visible in [source_coverage.json](../data/results/source_coverage.json). Query metrics below describe identified targets; they must not hide this upstream coverage denominator.", "",
-             "## Controlled comparison", "",
-             "All modes use the same company-period-query keys and growth formula. Period-end mode brings the first disclosed version back to the economic period end. Latest mode backfills the final collected version from the first original availability date. PIT selects only eligible versions.", "",
+             "## Separate extraction cross-check", "",
+             "The SEC Companyfacts snapshot is used only for a separate extraction comparison. Matching requires the same issuer, accession, concept namespace/local name, period and unit. It does not supply query values and is not a historical API snapshot or independent economic ground truth.", "",
+             "| Split | Unique admitted source facts | Exact matches | Numeric mismatches | Not comparable / outside API coverage |",
+             "|---|---:|---:|---:|---:|"]
+    for split, check in crosschecks.items():
+        rows.append(f"| {split} | {check['unique_accepted_facts']} | {check['exact_match_count']} | {check['status_counts'].get('numeric_mismatch', 0)} | {check['unique_accepted_facts'] - check['comparable_count']} |")
+    rows += ["", "## Controlled comparison", "",
+             "All modes use the same company-period-query keys and growth formula. Period-end mode brings only the first disclosure back to the economic period end; later revisions keep their actual availability. Latest mode backfills the final collected version from the first original availability date. PIT selects only eligible versions.", "",
              "![Timing and comparability diagnostics](assets/research_summary.png)", "",
              "| Split | Mode | Usable revenue / queries | Future-source revenue / usable | Usable growth / queries |",
              "|---|---|---:|---:|---:|"]
@@ -155,7 +168,8 @@ def build_report(root: str | Path) -> dict:
             growth = summary["comparisons_to_pit"][baseline]["growth"]
             rank = summary["rankings"][baseline]
             rows.append(f"| {split} | {LABELS[baseline]} | {rev['numeric_changed_count']} / {rev['numeric_changed_denominator']} | {growth['numeric_changed_count']} / {growth['numeric_changed_denominator']} | {growth['direction_changed_count']} / {growth['direction_changed_denominator']} | {rank['changed_memberships']} / {rank['common_memberships']} |")
-    rows += ["", "A rank membership is one company in one fiscal-year/query comparison, not an independent observation. Ranks use only the common usable set (at least two companies), with average ranks for exact ties. Fiscal calendars differ, so this is a mechanical sensitivity diagnostic rather than a synchronized stock-selection strategy.", "",
+    rows += ["", "The period-end intervention changes only the first availability timestamp. Once both it and PIT are usable, their values should match. Its error is visible in premature source use and baseline-only usable observations, not a nonzero paired numeric difference. The pre-evaluation [protocol clarification](PROTOCOL_AMENDMENT_01.md) and superseded exploration remain available.", "",
+             "A rank membership is one company in one fiscal-year/query comparison, not an independent observation. Ranks use only the common usable set (at least two companies), with average ranks for exact ties. Fiscal calendars differ, so this is a mechanical sensitivity diagnostic rather than a synchronized stock-selection strategy.", "",
              "## Source-version changes", "",
              f"The collection contains **{len(changes)}** transitions with changed admitted revenue values for target fiscal years. The complete transition ledger is [source_version_changes.csv](../data/results/source_version_changes.csv). These are source-version changes, not automatically accounting restatements or vendor errors.", "",
              "| Split | Company / FY | Earlier value (USD) | Later value (USD) | Source pair |", "|---|---|---:|---:|---|"]
@@ -166,12 +180,16 @@ def build_report(root: str | Path) -> dict:
     if not changes:
         rows.append("| — | No admitted numeric version change found | — | — | This does not imply no timing leakage |")
     checks = read_jsonl(root / "data/reference/source_checks.jsonl")
+    matrix = injections["temporal_summary"]["confusion_matrix"]
+    temporal = injections["temporal_summary"]
+    semantic = injections["semantic_summary"]
     rows += ["", "The displayed examples are selected by absolute dollar change, not randomly. Interpretation requires the original accounting-policy, reclassification, disposal and restatement notes. See [source cases](SOURCE_CASES.md) for independently inspected document examples.", "",
              "## Verification and limitations", "",
              f"The repository contains **{len(checks)}** independently performed AI source checks. They are explicitly labeled as AI work; **independent human review remains pending**. The [review template](SOURCE_REVIEW_TEMPLATE.md) supports a reviewer who did not develop the code. No human accuracy percentage or audit opinion is claimed.", "",
+             f"The labeled **synthetic** temporal benchmark records TP={matrix['TP']}, FP={matrix['FP']}, TN={matrix['TN']}, FN={matrix['FN']} over {temporal['scoring_coverage']['numerator']} scored cases; {temporal['observed_refusal_count']} refusals are separate. Another {semantic['expectation_match_count']} / {semantic['scenario_count']} designed semantic scenarios matched their prescribed outcomes. These are checks on named injected faults, not real-world precision/recall estimates. Full inputs and labels are in [the synthetic benchmark](../data/results/synthetic_injection_benchmark.json).", "",
              "- Arelle supplies general XBRL validation plus the fixed SEC inline transformation module; this is not full EDGAR Filer Manual certification.",
              "- Primary-statement mapping uses explicit concept, dimension, unit and same-role calculation evidence. Unsupported semantics are refused; coverage and refusal reasons remain in the results.",
-             "- Growth requires a matching adjacent annual pair in one filing and one statement basis. A later filing can update a target year without including its predecessor; such growth queries are refused, not filled from an older basis.",
+             "- Growth requires a matching adjacent annual pair in one filing and statement basis, with equal concept namespace/local name and currency. This is a structural comparability check, not certification of unchanged accounting policy. A later filing can update a target year without including its predecessor; such growth queries are refused, not filled from an older basis.",
              "- The twelve issuers form a purposive engineering corpus. Neither observed failure shares nor repeated monthly comparisons estimate a market-wide frequency or a statistically independent sample.",
              "- Revenue updates can be legitimate consequences of business-boundary or accounting-policy changes. Feature differences do not demonstrate excess returns, causal effects, or trading viability.",
              "- Hashes establish byte identity, tests establish specific code properties, and reproductions establish computational consistency. None alone proves accounting truth.", "",

@@ -129,7 +129,13 @@ def _reproduction_fixture(root):
         hashes[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
     freeze = root / "data/manifests/rule_freeze.json"
     freeze.parent.mkdir(parents=True, exist_ok=True)
-    freeze.write_text(json.dumps({"created_at": "synthetic-test-only", "rule_hashes": hashes}), encoding="utf-8")
+    source_hashes = {}
+    for relative in ("data/manifests/sources.jsonl", "data/manifests/filings.jsonl"):
+        source = root / relative
+        source.write_text('{}\n', encoding="utf-8", newline="\n")
+        source_hashes[relative] = hashlib.sha256(source.read_bytes()).hexdigest()
+    freeze.write_text(json.dumps({"created_at": "synthetic-test-only", "rule_hashes": hashes,
+                                  "source_manifest_hashes": source_hashes}), encoding="utf-8")
     for split in ("development", "holdout"):
         run_experiment(root, split)
     script = Path(__file__).resolve().parents[1] / "scripts/reproduce.py"
@@ -144,6 +150,8 @@ def test_reproduction_replays_in_separate_directory(tmp_path):
     module = _reproduction_fixture(root)
     result = module.replay_experiments(root, tmp_path / "work")
     assert result["status"] == "passed" and result["artifact_count"] == 6
+    for name in ("sources.jsonl", "filings.jsonl"):
+        assert (tmp_path / "work/experiment-replay/data/manifests" / name).read_bytes() == (root / "data/manifests" / name).read_bytes()
 
 
 def test_reproduction_mismatch_preserves_reference_files(tmp_path, monkeypatch):
@@ -159,3 +167,20 @@ def test_reproduction_mismatch_preserves_reference_files(tmp_path, monkeypatch):
     with pytest.raises(ValueError, match="baselines were not overwritten"):
         module.replay_experiments(root, tmp_path / "work")
     assert original == {path.name: path.read_bytes() for path in (root / "data/results").iterdir()}
+
+
+def test_reproduction_refuses_missing_frozen_source_manifest(tmp_path):
+    root = tmp_path / "reference"
+    module = _reproduction_fixture(root)
+    (root / "data/manifests/sources.jsonl").unlink()
+    with pytest.raises(FileNotFoundError):
+        module.replay_experiments(root, tmp_path / "work")
+
+
+def test_reproduction_refuses_changed_frozen_source_manifest(tmp_path):
+    root = tmp_path / "reference"
+    module = _reproduction_fixture(root)
+    source = root / "data/manifests/filings.jsonl"
+    source.write_text('{"synthetic_changed": true}\n', encoding="utf-8", newline="\n")
+    with pytest.raises(ValueError, match="unchanged frozen rules"):
+        module.replay_experiments(root, tmp_path / "work")

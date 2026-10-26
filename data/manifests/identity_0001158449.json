@@ -1,0 +1,10 @@
+{
+  "cik": "0001158449",
+  "sample_ticker": "AAP",
+  "current_sec_name": "ADVANCE AUTO PARTS INC",
+  "current_sec_tickers": [
+    "AAP"
+  ],
+  "checked_at": "2026-10-26T15:50:03Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

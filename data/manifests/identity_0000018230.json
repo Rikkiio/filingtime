@@ -1,0 +1,10 @@
+{
+  "cik": "0000018230",
+  "sample_ticker": "CAT",
+  "current_sec_name": "CATERPILLAR INC",
+  "current_sec_tickers": [
+    "CAT"
+  ],
+  "checked_at": "2026-10-26T15:41:10Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

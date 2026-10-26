@@ -1,0 +1,10 @@
+{
+  "cik": "0000047217",
+  "sample_ticker": "HPQ",
+  "current_sec_name": "HP INC",
+  "current_sec_tickers": [
+    "HPQ"
+  ],
+  "checked_at": "2026-10-26T16:04:52Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

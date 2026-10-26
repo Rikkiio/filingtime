@@ -1,0 +1,2929 @@
+{
+  "summary": {
+    "split": "development",
+    "unique_accepted_facts": 171,
+    "status_counts": {
+      "exact_match": 171
+    },
+    "input_facts_sha256": "cadcf2c5b53f1fba97a371bf6466af0d664d39afe9a9fb4e7c1d59c77d2f2c86",
+    "comparable_count": 171,
+    "exact_match_count": 171,
+    "extraction_agreement": 1.0,
+    "source_fact_count_before_deduplication": 540,
+    "human_review_status": "pending",
+    "limitations": [
+      "Companyfacts is a separate extraction path over the same issuer disclosures, not independent economic truth.",
+      "The current downloaded snapshot is not a historical API snapshot and never supplies PIT query values.",
+      "Custom-taxonomy facts and unmatched accession/period keys remain in the denominator ledger; no silent exclusion."
+    ]
+  },
+  "observations": [
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-19-000034",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2016-01-01",
+      "period_end": "2016-12-31",
+      "unit": "USD",
+      "raw_filing_value": "38537000000",
+      "sec_extracted_values": [
+        "38537000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823019000034/cat-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-19-000034",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-31",
+      "unit": "USD",
+      "raw_filing_value": "45462000000",
+      "sec_extracted_values": [
+        "45462000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823019000034/cat-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-19-000034",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "54722000000",
+      "sec_extracted_values": [
+        "54722000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823019000034/cat-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-20-000056",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-31",
+      "unit": "USD",
+      "raw_filing_value": "45462000000",
+      "sec_extracted_values": [
+        "45462000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823020000056/cat10-k12312019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-20-000056",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "54722000000",
+      "sec_extracted_values": [
+        "54722000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823020000056/cat10-k12312019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-20-000056",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "53800000000",
+      "sec_extracted_values": [
+        "53800000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823020000056/cat10-k12312019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-21-000063",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "54722000000",
+      "sec_extracted_values": [
+        "54722000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823021000063/cat-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-21-000063",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "53800000000",
+      "sec_extracted_values": [
+        "53800000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823021000063/cat-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-21-000063",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "41748000000",
+      "sec_extracted_values": [
+        "41748000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823021000063/cat-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-22-000050",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "53800000000",
+      "sec_extracted_values": [
+        "53800000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823022000050/cat-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-22-000050",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "41748000000",
+      "sec_extracted_values": [
+        "41748000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823022000050/cat-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-22-000050",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "50971000000",
+      "sec_extracted_values": [
+        "50971000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823022000050/cat-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-23-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "41748000000",
+      "sec_extracted_values": [
+        "41748000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823023000011/cat-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-23-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "50971000000",
+      "sec_extracted_values": [
+        "50971000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823023000011/cat-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-23-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "59427000000",
+      "sec_extracted_values": [
+        "59427000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823023000011/cat-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-24-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "50971000000",
+      "sec_extracted_values": [
+        "50971000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000009/cat-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-24-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "59427000000",
+      "sec_extracted_values": [
+        "59427000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000009/cat-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-24-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "unit": "USD",
+      "raw_filing_value": "67060000000",
+      "sec_extracted_values": [
+        "67060000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000009/cat-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-25-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "59427000000",
+      "sec_extracted_values": [
+        "59427000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-25-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "unit": "USD",
+      "raw_filing_value": "67060000000",
+      "sec_extracted_values": [
+        "67060000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000018230",
+      "accession": "0000018230-25-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "unit": "USD",
+      "raw_filing_value": "64809000000",
+      "sec_extracted_values": [
+        "64809000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000018230.json",
+      "comparison_snapshot_sha256": "01ddc6ffa741f0a7da440e2949b2ed19cec14fab35435a398e3f3d0100019715"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-19-000014",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2016-01-01",
+      "period_end": "2016-12-31",
+      "unit": "USD",
+      "raw_filing_value": "41863000000",
+      "sec_extracted_values": [
+        "41863000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134419000014/ko-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-19-000014",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-31",
+      "unit": "USD",
+      "raw_filing_value": "35410000000",
+      "sec_extracted_values": [
+        "35410000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134419000014/ko-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-19-000014",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "31856000000",
+      "sec_extracted_values": [
+        "31856000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134419000014/ko-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-20-000006",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-31",
+      "unit": "USD",
+      "raw_filing_value": "36212000000",
+      "sec_extracted_values": [
+        "36212000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134420000006/a2019123110-k.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-20-000006",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "34300000000",
+      "sec_extracted_values": [
+        "34300000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134420000006/a2019123110-k.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-20-000006",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "37266000000",
+      "sec_extracted_values": [
+        "37266000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134420000006/a2019123110-k.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-21-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "34300000000",
+      "sec_extracted_values": [
+        "34300000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134421000008/ko-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-21-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "37266000000",
+      "sec_extracted_values": [
+        "37266000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134421000008/ko-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-21-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "33014000000",
+      "sec_extracted_values": [
+        "33014000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134421000008/ko-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-22-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "37266000000",
+      "sec_extracted_values": [
+        "37266000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134422000009/ko-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-22-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "33014000000",
+      "sec_extracted_values": [
+        "33014000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134422000009/ko-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-22-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "38655000000",
+      "sec_extracted_values": [
+        "38655000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134422000009/ko-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-23-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "33014000000",
+      "sec_extracted_values": [
+        "33014000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134423000011/ko-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-23-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "38655000000",
+      "sec_extracted_values": [
+        "38655000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134423000011/ko-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-23-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "43004000000",
+      "sec_extracted_values": [
+        "43004000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134423000011/ko-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-24-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "38655000000",
+      "sec_extracted_values": [
+        "38655000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-24-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "43004000000",
+      "sec_extracted_values": [
+        "43004000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-24-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "unit": "USD",
+      "raw_filing_value": "45754000000",
+      "sec_extracted_values": [
+        "45754000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-25-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "43004000000",
+      "sec_extracted_values": [
+        "43004000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-25-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "unit": "USD",
+      "raw_filing_value": "45754000000",
+      "sec_extracted_values": [
+        "45754000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000021344",
+      "accession": "0000021344-25-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "unit": "USD",
+      "raw_filing_value": "47061000000",
+      "sec_extracted_values": [
+        "47061000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000021344.json",
+      "comparison_snapshot_sha256": "53d363a9aa3071406cda9857654358f4dca42e174a1defb8cc1ce9ad2a4c9e40"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-19-000014",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2016-01-01",
+      "period_end": "2016-12-31",
+      "unit": "USD",
+      "raw_filing_value": "119469000000",
+      "sec_extracted_values": [
+        "119469000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054519000014/ge-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-19-000014",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-31",
+      "unit": "USD",
+      "raw_filing_value": "118243000000",
+      "sec_extracted_values": [
+        "118243000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054519000014/ge-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-19-000014",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "121615000000",
+      "sec_extracted_values": [
+        "121615000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054519000014/ge-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-20-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-31",
+      "unit": "USD",
+      "raw_filing_value": "99279000000",
+      "sec_extracted_values": [
+        "99279000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054520000009/ge10-k2019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-20-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "97012000000",
+      "sec_extracted_values": [
+        "97012000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054520000009/ge10-k2019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-20-000009",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "95214000000",
+      "sec_extracted_values": [
+        "95214000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054520000009/ge10-k2019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-21-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "97012000000",
+      "sec_extracted_values": [
+        "97012000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054521000011/ge-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-21-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "95214000000",
+      "sec_extracted_values": [
+        "95214000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054521000011/ge-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-21-000011",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "79619000000",
+      "sec_extracted_values": [
+        "79619000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054521000011/ge-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-22-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "90221000000",
+      "sec_extracted_values": [
+        "90221000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054522000008/ge-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-22-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "75833000000",
+      "sec_extracted_values": [
+        "75833000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054522000008/ge-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-22-000008",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "74196000000",
+      "sec_extracted_values": [
+        "74196000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054522000008/ge-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-23-000023",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "75833000000",
+      "sec_extracted_values": [
+        "75833000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000023/ge-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-23-000023",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "74196000000",
+      "sec_extracted_values": [
+        "74196000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000023/ge-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-23-000023",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "76555000000",
+      "sec_extracted_values": [
+        "76555000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000023/ge-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-24-000027",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "56469000000",
+      "sec_extracted_values": [
+        "56469000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054524000027/ge-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-24-000027",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "58100000000",
+      "sec_extracted_values": [
+        "58100000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054524000027/ge-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-24-000027",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "unit": "USD",
+      "raw_filing_value": "67954000000",
+      "sec_extracted_values": [
+        "67954000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054524000027/ge-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-25-000015",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "29139000000",
+      "sec_extracted_values": [
+        "29139000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/ge-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-25-000015",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "unit": "USD",
+      "raw_filing_value": "35348000000",
+      "sec_extracted_values": [
+        "35348000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/ge-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-25-000015",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "unit": "USD",
+      "raw_filing_value": "38702000000",
+      "sec_extracted_values": [
+        "38702000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/ge-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000040545.json",
+      "comparison_snapshot_sha256": "95ed2ee4383e17c8c50ea84b475a90b8172dc9d1728a330787ec0b7fada60216"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-19-000051",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2016-06-01",
+      "period_end": "2017-05-31",
+      "unit": "USD",
+      "raw_filing_value": "34350000000",
+      "sec_extracted_values": [
+        "34350000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018719000051/nke-20190531.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-19-000051",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-06-01",
+      "period_end": "2018-05-31",
+      "unit": "USD",
+      "raw_filing_value": "36397000000",
+      "sec_extracted_values": [
+        "36397000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018719000051/nke-20190531.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-19-000051",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2018-06-01",
+      "period_end": "2019-05-31",
+      "unit": "USD",
+      "raw_filing_value": "39117000000",
+      "sec_extracted_values": [
+        "39117000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018719000051/nke-20190531.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-20-000047",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2017-06-01",
+      "period_end": "2018-05-31",
+      "unit": "USD",
+      "raw_filing_value": "36397000000",
+      "sec_extracted_values": [
+        "36397000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018720000047/nke-531202010k.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-20-000047",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2018-06-01",
+      "period_end": "2019-05-31",
+      "unit": "USD",
+      "raw_filing_value": "39117000000",
+      "sec_extracted_values": [
+        "39117000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018720000047/nke-531202010k.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-20-000047",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2019-06-01",
+      "period_end": "2020-05-31",
+      "unit": "USD",
+      "raw_filing_value": "37403000000",
+      "sec_extracted_values": [
+        "37403000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018720000047/nke-531202010k.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-21-000028",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-06-01",
+      "period_end": "2019-05-31",
+      "unit": "USD",
+      "raw_filing_value": "39117000000",
+      "sec_extracted_values": [
+        "39117000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018721000028/nke-20210531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-21-000028",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-06-01",
+      "period_end": "2020-05-31",
+      "unit": "USD",
+      "raw_filing_value": "37403000000",
+      "sec_extracted_values": [
+        "37403000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018721000028/nke-20210531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-21-000028",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2020-06-01",
+      "period_end": "2021-05-31",
+      "unit": "USD",
+      "raw_filing_value": "44538000000",
+      "sec_extracted_values": [
+        "44538000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018721000028/nke-20210531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-22-000038",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2019-06-01",
+      "period_end": "2020-05-31",
+      "unit": "USD",
+      "raw_filing_value": "37403000000",
+      "sec_extracted_values": [
+        "37403000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018722000038/nke-20220531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-22-000038",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2020-06-01",
+      "period_end": "2021-05-31",
+      "unit": "USD",
+      "raw_filing_value": "44538000000",
+      "sec_extracted_values": [
+        "44538000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018722000038/nke-20220531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-22-000038",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2021-06-01",
+      "period_end": "2022-05-31",
+      "unit": "USD",
+      "raw_filing_value": "46710000000",
+      "sec_extracted_values": [
+        "46710000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018722000038/nke-20220531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-23-000039",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2020-06-01",
+      "period_end": "2021-05-31",
+      "unit": "USD",
+      "raw_filing_value": "44538000000",
+      "sec_extracted_values": [
+        "44538000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018723000039/nke-20230531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-23-000039",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2021-06-01",
+      "period_end": "2022-05-31",
+      "unit": "USD",
+      "raw_filing_value": "46710000000",
+      "sec_extracted_values": [
+        "46710000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018723000039/nke-20230531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-23-000039",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2022-06-01",
+      "period_end": "2023-05-31",
+      "unit": "USD",
+      "raw_filing_value": "51217000000",
+      "sec_extracted_values": [
+        "51217000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018723000039/nke-20230531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-24-000044",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-06-01",
+      "period_end": "2022-05-31",
+      "unit": "USD",
+      "raw_filing_value": "46710000000",
+      "sec_extracted_values": [
+        "46710000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018724000044/nke-20240531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-24-000044",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-06-01",
+      "period_end": "2023-05-31",
+      "unit": "USD",
+      "raw_filing_value": "51217000000",
+      "sec_extracted_values": [
+        "51217000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018724000044/nke-20240531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-24-000044",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2023-06-01",
+      "period_end": "2024-05-31",
+      "unit": "USD",
+      "raw_filing_value": "51362000000",
+      "sec_extracted_values": [
+        "51362000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018724000044/nke-20240531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-25-000047",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2022-06-01",
+      "period_end": "2023-05-31",
+      "unit": "USD",
+      "raw_filing_value": "51217000000",
+      "sec_extracted_values": [
+        "51217000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-25-000047",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-06-01",
+      "period_end": "2024-05-31",
+      "unit": "USD",
+      "raw_filing_value": "51362000000",
+      "sec_extracted_values": [
+        "51362000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320187",
+      "accession": "0000320187-25-000047",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2024-06-01",
+      "period_end": "2025-05-31",
+      "unit": "USD",
+      "raw_filing_value": "46309000000",
+      "sec_extracted_values": [
+        "46309000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320187.json",
+      "comparison_snapshot_sha256": "d7aeceae21e6649e163d195729849349b27d909ab1a6eb4630a7c0c227acd890"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-19-000119",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2016-09-25",
+      "period_end": "2017-09-30",
+      "unit": "USD",
+      "raw_filing_value": "229234000000",
+      "sec_extracted_values": [
+        "229234000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019319000119/a10-k20199282019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-19-000119",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2017-10-01",
+      "period_end": "2018-09-29",
+      "unit": "USD",
+      "raw_filing_value": "265595000000",
+      "sec_extracted_values": [
+        "265595000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019319000119/a10-k20199282019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-19-000119",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2018-09-30",
+      "period_end": "2019-09-28",
+      "unit": "USD",
+      "raw_filing_value": "260174000000",
+      "sec_extracted_values": [
+        "260174000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019319000119/a10-k20199282019.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-20-000096",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2017-10-01",
+      "period_end": "2018-09-29",
+      "unit": "USD",
+      "raw_filing_value": "265595000000",
+      "sec_extracted_values": [
+        "265595000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019320000096/aapl-20200926.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-20-000096",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-09-30",
+      "period_end": "2019-09-28",
+      "unit": "USD",
+      "raw_filing_value": "260174000000",
+      "sec_extracted_values": [
+        "260174000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019320000096/aapl-20200926.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-20-000096",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-09-29",
+      "period_end": "2020-09-26",
+      "unit": "USD",
+      "raw_filing_value": "274515000000",
+      "sec_extracted_values": [
+        "274515000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019320000096/aapl-20200926.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-21-000105",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2018-09-30",
+      "period_end": "2019-09-28",
+      "unit": "USD",
+      "raw_filing_value": "260174000000",
+      "sec_extracted_values": [
+        "260174000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019321000105/aapl-20210925.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-21-000105",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2019-09-29",
+      "period_end": "2020-09-26",
+      "unit": "USD",
+      "raw_filing_value": "274515000000",
+      "sec_extracted_values": [
+        "274515000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019321000105/aapl-20210925.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-21-000105",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2020-09-27",
+      "period_end": "2021-09-25",
+      "unit": "USD",
+      "raw_filing_value": "365817000000",
+      "sec_extracted_values": [
+        "365817000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019321000105/aapl-20210925.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-22-000108",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2019-09-29",
+      "period_end": "2020-09-26",
+      "unit": "USD",
+      "raw_filing_value": "274515000000",
+      "sec_extracted_values": [
+        "274515000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000108/aapl-20220924.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-22-000108",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2020-09-27",
+      "period_end": "2021-09-25",
+      "unit": "USD",
+      "raw_filing_value": "365817000000",
+      "sec_extracted_values": [
+        "365817000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000108/aapl-20220924.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-22-000108",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2021-09-26",
+      "period_end": "2022-09-24",
+      "unit": "USD",
+      "raw_filing_value": "394328000000",
+      "sec_extracted_values": [
+        "394328000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000108/aapl-20220924.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-23-000106",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2020-09-27",
+      "period_end": "2021-09-25",
+      "unit": "USD",
+      "raw_filing_value": "365817000000",
+      "sec_extracted_values": [
+        "365817000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-23-000106",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-09-26",
+      "period_end": "2022-09-24",
+      "unit": "USD",
+      "raw_filing_value": "394328000000",
+      "sec_extracted_values": [
+        "394328000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-23-000106",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-09-25",
+      "period_end": "2023-09-30",
+      "unit": "USD",
+      "raw_filing_value": "383285000000",
+      "sec_extracted_values": [
+        "383285000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-24-000123",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2021-09-26",
+      "period_end": "2022-09-24",
+      "unit": "USD",
+      "raw_filing_value": "394328000000",
+      "sec_extracted_values": [
+        "394328000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-24-000123",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2022-09-25",
+      "period_end": "2023-09-30",
+      "unit": "USD",
+      "raw_filing_value": "383285000000",
+      "sec_extracted_values": [
+        "383285000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-24-000123",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-10-01",
+      "period_end": "2024-09-28",
+      "unit": "USD",
+      "raw_filing_value": "391035000000",
+      "sec_extracted_values": [
+        "391035000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-25-000079",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2025",
+      "period_start": "2022-09-25",
+      "period_end": "2023-09-30",
+      "unit": "USD",
+      "raw_filing_value": "383285000000",
+      "sec_extracted_values": [
+        "383285000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-25-000079",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2025",
+      "period_start": "2023-10-01",
+      "period_end": "2024-09-28",
+      "unit": "USD",
+      "raw_filing_value": "391035000000",
+      "sec_extracted_values": [
+        "391035000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-25-000079",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2025",
+      "period_start": "2024-09-29",
+      "period_end": "2025-09-27",
+      "unit": "USD",
+      "raw_filing_value": "416161000000",
+      "sec_extracted_values": [
+        "416161000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "comparison_snapshot_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-23-035122",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2020-07-01",
+      "period_end": "2021-06-30",
+      "unit": "USD",
+      "raw_filing_value": "168088000000",
+      "sec_extracted_values": [
+        "168088000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017023035122/msft-20230630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-23-035122",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-07-01",
+      "period_end": "2022-06-30",
+      "unit": "USD",
+      "raw_filing_value": "198270000000",
+      "sec_extracted_values": [
+        "198270000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017023035122/msft-20230630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-23-035122",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-07-01",
+      "period_end": "2023-06-30",
+      "unit": "USD",
+      "raw_filing_value": "211915000000",
+      "sec_extracted_values": [
+        "211915000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017023035122/msft-20230630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-24-087843",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-07-01",
+      "period_end": "2022-06-30",
+      "unit": "USD",
+      "raw_filing_value": "198270000000",
+      "sec_extracted_values": [
+        "198270000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-24-087843",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-07-01",
+      "period_end": "2023-06-30",
+      "unit": "USD",
+      "raw_filing_value": "211915000000",
+      "sec_extracted_values": [
+        "211915000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-24-087843",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2023-07-01",
+      "period_end": "2024-06-30",
+      "unit": "USD",
+      "raw_filing_value": "245122000000",
+      "sec_extracted_values": [
+        "245122000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-25-100235",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2022-07-01",
+      "period_end": "2023-06-30",
+      "unit": "USD",
+      "raw_filing_value": "211915000000",
+      "sec_extracted_values": [
+        "211915000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-25-100235",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-07-01",
+      "period_end": "2024-06-30",
+      "unit": "USD",
+      "raw_filing_value": "245122000000",
+      "sec_extracted_values": [
+        "245122000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0000950170-25-100235",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2024-07-01",
+      "period_end": "2025-06-30",
+      "unit": "USD",
+      "raw_filing_value": "281724000000",
+      "sec_extracted_values": [
+        "281724000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-19-027952",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2016-07-01",
+      "period_end": "2017-06-30",
+      "unit": "USD",
+      "raw_filing_value": "96571000000",
+      "sec_extracted_values": [
+        "96571000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459019027952/msft-20190630.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-19-027952",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-07-01",
+      "period_end": "2018-06-30",
+      "unit": "USD",
+      "raw_filing_value": "110360000000",
+      "sec_extracted_values": [
+        "110360000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459019027952/msft-20190630.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-19-027952",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2018-07-01",
+      "period_end": "2019-06-30",
+      "unit": "USD",
+      "raw_filing_value": "125843000000",
+      "sec_extracted_values": [
+        "125843000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459019027952/msft-20190630.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-20-034944",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2017-07-01",
+      "period_end": "2018-06-30",
+      "unit": "USD",
+      "raw_filing_value": "110360000000",
+      "sec_extracted_values": [
+        "110360000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459020034944/msft-10k_20200630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-20-034944",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-07-01",
+      "period_end": "2019-06-30",
+      "unit": "USD",
+      "raw_filing_value": "125843000000",
+      "sec_extracted_values": [
+        "125843000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459020034944/msft-10k_20200630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-20-034944",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-07-01",
+      "period_end": "2020-06-30",
+      "unit": "USD",
+      "raw_filing_value": "143015000000",
+      "sec_extracted_values": [
+        "143015000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459020034944/msft-10k_20200630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-21-039151",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-07-01",
+      "period_end": "2019-06-30",
+      "unit": "USD",
+      "raw_filing_value": "125843000000",
+      "sec_extracted_values": [
+        "125843000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459021039151/msft-10k_20210630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-21-039151",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-07-01",
+      "period_end": "2020-06-30",
+      "unit": "USD",
+      "raw_filing_value": "143015000000",
+      "sec_extracted_values": [
+        "143015000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459021039151/msft-10k_20210630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-21-039151",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2020-07-01",
+      "period_end": "2021-06-30",
+      "unit": "USD",
+      "raw_filing_value": "168088000000",
+      "sec_extracted_values": [
+        "168088000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459021039151/msft-10k_20210630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-22-026876",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2019-07-01",
+      "period_end": "2020-06-30",
+      "unit": "USD",
+      "raw_filing_value": "143015000000",
+      "sec_extracted_values": [
+        "143015000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459022026876/msft-10k_20220630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-22-026876",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2020-07-01",
+      "period_end": "2021-06-30",
+      "unit": "USD",
+      "raw_filing_value": "168088000000",
+      "sec_extracted_values": [
+        "168088000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459022026876/msft-10k_20220630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-22-026876",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2021-07-01",
+      "period_end": "2022-06-30",
+      "unit": "USD",
+      "raw_filing_value": "198270000000",
+      "sec_extracted_values": [
+        "198270000000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/789019/000156459022026876/msft-10k_20220630.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "comparison_snapshot_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-19-000043",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2016-01-03",
+      "period_end": "2016-12-31",
+      "unit": "USD",
+      "raw_filing_value": "9567679000",
+      "sec_extracted_values": [
+        "9567679000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844919000043/aap-20181229.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-19-000043",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-30",
+      "unit": "USD",
+      "raw_filing_value": "9373784000",
+      "sec_extracted_values": [
+        "9373784000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844919000043/aap-20181229.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-19-000043",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-12-31",
+      "period_end": "2018-12-29",
+      "unit": "USD",
+      "raw_filing_value": "9580554000",
+      "sec_extracted_values": [
+        "9580554000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844919000043/aap-20181229.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-20-000035",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-30",
+      "unit": "USD",
+      "raw_filing_value": "9373784000",
+      "sec_extracted_values": [
+        "9373784000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844920000035/aap10k12282019secreport.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-20-000035",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2017-12-31",
+      "period_end": "2018-12-29",
+      "unit": "USD",
+      "raw_filing_value": "9580554000",
+      "sec_extracted_values": [
+        "9580554000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844920000035/aap10k12282019secreport.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-20-000035",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2019-01-31",
+      "period_start": "2018-12-30",
+      "period_end": "2019-12-28",
+      "unit": "USD",
+      "raw_filing_value": "9709003000",
+      "sec_extracted_values": [
+        "9709003000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844920000035/aap10k12282019secreport.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-21-000036",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2017-12-31",
+      "period_end": "2018-12-29",
+      "unit": "USD",
+      "raw_filing_value": "9580554000",
+      "sec_extracted_values": [
+        "9580554000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844921000036/aap-20210102.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-21-000036",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-12-30",
+      "period_end": "2019-12-28",
+      "unit": "USD",
+      "raw_filing_value": "9709003000",
+      "sec_extracted_values": [
+        "9709003000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844921000036/aap-20210102.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-21-000036",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-12-29",
+      "period_end": "2021-01-02",
+      "unit": "USD",
+      "raw_filing_value": "10106321000",
+      "sec_extracted_values": [
+        "10106321000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844921000036/aap-20210102.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-22-000037",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2018-12-30",
+      "period_end": "2019-12-28",
+      "unit": "USD",
+      "raw_filing_value": "9709003000",
+      "sec_extracted_values": [
+        "9709003000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844922000037/aap-20220101.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-22-000037",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2019-12-29",
+      "period_end": "2021-01-02",
+      "unit": "USD",
+      "raw_filing_value": "10106321000",
+      "sec_extracted_values": [
+        "10106321000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844922000037/aap-20220101.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-22-000037",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2021-01-03",
+      "period_end": "2022-01-01",
+      "unit": "USD",
+      "raw_filing_value": "10997989000",
+      "sec_extracted_values": [
+        "10997989000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844922000037/aap-20220101.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-23-000035",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2019-12-29",
+      "period_end": "2021-01-02",
+      "unit": "USD",
+      "raw_filing_value": "10106321000",
+      "sec_extracted_values": [
+        "10106321000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844923000035/aap-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-23-000035",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2021-01-03",
+      "period_end": "2022-01-01",
+      "unit": "USD",
+      "raw_filing_value": "10997989000",
+      "sec_extracted_values": [
+        "10997989000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844923000035/aap-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-23-000035",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2022",
+      "period_start": "2022-01-02",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "11154722000",
+      "sec_extracted_values": [
+        "11154722000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844923000035/aap-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-24-000048",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-01-03",
+      "period_end": "2022-01-01",
+      "unit": "USD",
+      "raw_filing_value": "10997989000",
+      "sec_extracted_values": [
+        "10997989000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844924000048/aap-20231230.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-24-000048",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-01-02",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "11154722000",
+      "sec_extracted_values": [
+        "11154722000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844924000048/aap-20231230.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-24-000048",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-30",
+      "unit": "USD",
+      "raw_filing_value": "11287607000",
+      "sec_extracted_values": [
+        "11287607000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844924000048/aap-20231230.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-24-000128",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-01-03",
+      "period_end": "2022-01-01",
+      "unit": "USD",
+      "raw_filing_value": "10997989000",
+      "sec_extracted_values": [
+        "10997989000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844924000128/aap-20231230.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-24-000128",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-01-02",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "11154722000",
+      "sec_extracted_values": [
+        "11154722000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844924000128/aap-20231230.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-24-000128",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-30",
+      "unit": "USD",
+      "raw_filing_value": "11287607000",
+      "sec_extracted_values": [
+        "11287607000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844924000128/aap-20231230.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-25-000064",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2022-01-02",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "9148874000",
+      "sec_extracted_values": [
+        "9148874000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844925000064/aap-20241228.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-25-000064",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-30",
+      "unit": "USD",
+      "raw_filing_value": "9209075000",
+      "sec_extracted_values": [
+        "9209075000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844925000064/aap-20241228.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001158449",
+      "accession": "0001158449-25-000064",
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-12-31",
+      "period_end": "2024-12-28",
+      "unit": "USD",
+      "raw_filing_value": "9094327000",
+      "sec_extracted_values": [
+        "9094327000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1158449/000115844925000064/aap-20241228.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158449.json",
+      "comparison_snapshot_sha256": "6874525bf56289fd02085e2c1d57fd2ff73ee6a6c6fa6e887d065a3cbd488652"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-19-000013",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2016-01-01",
+      "period_end": "2016-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1185481000",
+      "sec_extracted_values": [
+        "1185481000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043519000013/gpro-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-19-000013",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1179741000",
+      "sec_extracted_values": [
+        "1179741000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043519000013/gpro-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-19-000013",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1148337000",
+      "sec_extracted_values": [
+        "1148337000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043519000013/gpro-20181231.xml",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-20-000013",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2017-01-01",
+      "period_end": "2017-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1179741000",
+      "sec_extracted_values": [
+        "1179741000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043520000013/gpro2019-12x3110xk.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-20-000013",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1148337000",
+      "sec_extracted_values": [
+        "1148337000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043520000013/gpro2019-12x3110xk.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-20-000013",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2018-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1194651000",
+      "sec_extracted_values": [
+        "1194651000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043520000013/gpro2019-12x3110xk.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-21-000020",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2018-01-01",
+      "period_end": "2018-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1148337000",
+      "sec_extracted_values": [
+        "1148337000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043521000020/gpro-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-21-000020",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1194651000",
+      "sec_extracted_values": [
+        "1194651000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043521000020/gpro-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-21-000020",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2020-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "891925000",
+      "sec_extracted_values": [
+        "891925000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043521000020/gpro-20201231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-22-000016",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2019-01-01",
+      "period_end": "2019-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1194651000",
+      "sec_extracted_values": [
+        "1194651000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043522000016/gpro-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-22-000016",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "891925000",
+      "sec_extracted_values": [
+        "891925000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043522000016/gpro-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-22-000016",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1161084000",
+      "sec_extracted_values": [
+        "1161084000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043522000016/gpro-20211231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-23-000021",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2020-01-01",
+      "period_end": "2020-12-31",
+      "unit": "USD",
+      "raw_filing_value": "891925000",
+      "sec_extracted_values": [
+        "891925000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043523000021/gpro-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-23-000021",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1161084000",
+      "sec_extracted_values": [
+        "1161084000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043523000021/gpro-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-23-000021",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2021-01-31",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1093541000",
+      "sec_extracted_values": [
+        "1093541000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043523000021/gpro-20221231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-24-000021",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2021-01-01",
+      "period_end": "2021-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1161084000",
+      "sec_extracted_values": [
+        "1161084000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043524000021/gpro-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-24-000021",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1093541000",
+      "sec_extracted_values": [
+        "1093541000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043524000021/gpro-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001500435-24-000021",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2023",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1005459000",
+      "sec_extracted_values": [
+        "1005459000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000150043524000021/gpro-20231231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001628280-25-013046",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2022-01-01",
+      "period_end": "2022-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1093541000",
+      "sec_extracted_values": [
+        "1093541000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000162828025013046/gpro-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001628280-25-013046",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "unit": "USD",
+      "raw_filing_value": "1005459000",
+      "sec_extracted_values": [
+        "1005459000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000162828025013046/gpro-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    },
+    {
+      "cik": "0001500435",
+      "accession": "0001628280-25-013046",
+      "concept": "us-gaap:Revenues",
+      "concept_namespace": "http://fasb.org/us-gaap/2024",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "unit": "USD",
+      "raw_filing_value": "801473000",
+      "sec_extracted_values": [
+        "801473000"
+      ],
+      "status": "exact_match",
+      "original_source_url": "https://www.sec.gov/Archives/edgar/data/1500435/000162828025013046/gpro-20241231.htm",
+      "comparison_source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001500435.json",
+      "comparison_snapshot_sha256": "28bd2e96891951126a786159778697953c4fac7bb06aa12a76c840a1702315b9"
+    }
+  ]
+}

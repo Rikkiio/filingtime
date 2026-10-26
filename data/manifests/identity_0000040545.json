@@ -1,0 +1,10 @@
+{
+  "cik": "0000040545",
+  "sample_ticker": "GE",
+  "current_sec_name": "GENERAL ELECTRIC CO",
+  "current_sec_tickers": [
+    "GE"
+  ],
+  "checked_at": "2026-10-26T15:44:24Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

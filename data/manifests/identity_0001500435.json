@@ -1,0 +1,10 @@
+{
+  "cik": "0001500435",
+  "sample_ticker": "GPRO",
+  "current_sec_name": "GoPro, Inc.",
+  "current_sec_tickers": [
+    "GPRO"
+  ],
+  "checked_at": "2026-10-26T15:55:45Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

@@ -1,0 +1,10 @@
+{
+  "cik": "0000789019",
+  "sample_ticker": "MSFT",
+  "current_sec_name": "MICROSOFT CORP",
+  "current_sec_tickers": [
+    "MSFT"
+  ],
+  "checked_at": "2026-10-26T15:30:09Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

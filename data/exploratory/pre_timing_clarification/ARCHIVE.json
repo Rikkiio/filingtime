@@ -1,0 +1,12 @@
+{
+  "status": "superseded_development_exploration_not_release_results",
+  "reason": "The original period_end baseline froze the first value forever, confounding premature availability and stale-version effects. Final protocol moves only the first effective timestamp and preserves later revisions.",
+  "code_commit": "b3427a2",
+  "holdout_parsed_count": 0,
+  "files": {
+    "development_observations.csv": "9205b02da5f9609df6d45e92c705897d25e75b0f3957210657bcf199ed9601d9",
+    "development_rankings.csv": "15ce9dd998ded9dae3ca706b118d14fa945599a17124dd87770ff3b3c74a44df",
+    "development_summary.json": "8fce4e77f097f19113c24a498d35f65bb8b9d6267bd45d94288bb6fbc0ab6f83",
+    "synthetic_injection_benchmark.json": "9dffc870e01aff35433e070d8ea3986dcd23d7717aac7b08ec9e476857c8da4f"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "cik": "0000320193",
+  "sample_ticker": "AAPL",
+  "current_sec_name": "Apple Inc.",
+  "current_sec_tickers": [
+    "AAPL"
+  ],
+  "checked_at": "2026-10-26T15:27:34Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

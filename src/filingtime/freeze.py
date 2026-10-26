@@ -21,6 +21,7 @@ RULE_PATHS = (
     "data/manifests/collection_protocol.json",
     "data/universe.csv",
     "docs/PROTOCOL.md",
+    "docs/PROTOCOL_AMENDMENT_01.md",
     "uv.lock",
 )
 

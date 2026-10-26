@@ -38,13 +38,18 @@ location and provenance. Do not silently equate dimensional segment data with en
 Distinguish numerical updates from accounting restatements: reclassification, accounting
 policy and discontinued operations may change comparatives legitimately. Unknown semantics
 must remain unverified or refused, with a machine-readable explanation.
-Growth requires a comparable adjacent annual pair within the same filing and accounting
-basis. Ambiguous facts and unsupported duration/unit/basis combinations must be refused.
+Growth admission requires an adjacent annual pair within the same filing and statement
+basis, with equal concept local name, concept namespace and currency. Different concept
+names are not silently treated as accounting synonyms. These are structural comparability
+checks, not proof that every accounting-policy detail is unchanged; independent accounting
+review remains pending. Ambiguous or unsupported duration/unit/basis combinations are refused.
 
 ## Three modes
 
-1. `period_end`: first disclosed version, incorrectly made usable at fiscal period end.
-   This is an intentionally contaminated baseline for premature-information exposure.
+1. `period_end`: move only the first disclosed version's effective timestamp back to
+   fiscal period end. Later revisions retain their actual availability timestamps.
+   After the first actual availability, selected revenue equals PIT. This isolates
+   premature first-disclosure exposure without also freezing stale first values.
 2. `latest`: final version in the fixed collection, made usable from the first eligible
    original disclosure date. This isolates later-version backfilling.
 3. `pit`: only versions eligible at the query time, preserving all source versions.
@@ -53,6 +58,9 @@ Use identical target company-period-query keys and the same growth formula. Repo
 use, numeric differences and direction changes separately. Rank comparisons use a declared
 common evaluable set; missing/refused cases and denominators remain visible. The rank metric
 describes this small sample and is not portfolio-return evidence.
+
+This timing definition was clarified before any held-out financial values were opened;
+see [amendment 01](PROTOCOL_AMENDMENT_01.md). Superseded development exploration is retained.
 
 ## Freeze and evaluation
 

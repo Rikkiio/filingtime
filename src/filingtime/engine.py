@@ -2,8 +2,9 @@
 
 Only ``pit`` is historically admissible. ``latest`` deliberately replaces values
 with later corpus versions, and ``period_end`` deliberately brings the first
-observation forward to the end of its financial period. These are experiments,
-not alternative definitions of historically available data.
+observation forward to the end of its financial period, while retaining the
+actual availability of every subsequent version. These are experiments, not
+alternative definitions of historically available data.
 """
 
 from __future__ import annotations
@@ -52,6 +53,18 @@ class RevenueEngine:
         # from no filing: that distinction was not knowable at the query time.
         if mode == "pit":
             raw = [f for f in raw if utc_datetime(f.available_at) <= query_time]
+        elif mode == "period_end":
+            period_close = datetime.combine(date.fromisoformat(period_end), datetime.max.time(), tzinfo=timezone.utc)
+            if query_time < period_close:
+                return QueryResult(status="missing", reason="financial_period_not_finished", **base)
+            annual = [f for f in raw if f.is_annual and f.is_consolidated]
+            first_time = min((utc_datetime(f.available_at) for f in annual), default=None)
+            if first_time is not None and query_time < first_time:
+                # The intentional timing error reveals precisely the first
+                # event, not any later version, diagnostic, or candidate count.
+                raw = [f for f in raw if utc_datetime(f.available_at) == first_time]
+            else:
+                raw = [f for f in raw if utc_datetime(f.available_at) <= query_time]
         candidates = [f for f in raw if f.is_annual and f.is_consolidated]
         diagnostics = tuple(sorted({
             *("excluded_nonannual_period" for f in raw if not f.is_annual),
@@ -72,12 +85,11 @@ class RevenueEngine:
                 return QueryResult(status="missing", reason="not_yet_originally_available", **base)
             selected_time, effective = dates[-1], dates[0]
         else:
-            # End of the economic period, in UTC, is a deliberately invalid
-            # availability convention used only for the period-end baseline.
-            effective = datetime.combine(date.fromisoformat(period_end), datetime.max.time(), tzinfo=timezone.utc)
-            if query_time < effective:
-                return QueryResult(status="missing", reason="financial_period_not_finished", **base)
-            selected_time = dates[0]
+            # Shift only the FIRST disclosure event earlier. Keeping that first
+            # value forever would confound timing leakage with stale data.
+            eligible = [t for t in dates if t <= query_time]
+            selected_time = eligible[-1] if eligible else dates[0]
+            effective = period_close if selected_time == dates[0] else selected_time
         group = [f for f in candidates if utc_datetime(f.available_at) == selected_time]
         status, reason, selected = self._resolve(group)
         return QueryResult(status=status, reason=reason, fact=selected,
@@ -93,9 +105,14 @@ class RevenueEngine:
         prior_candidates = [f for f in self.facts
                             if f.cik == selected.cik and f.accession == selected.accession
                             and f.period_end == prior_end and f.is_annual and f.is_consolidated]
-        if mode == "pit":
+        if mode == "pit" or (
+            mode == "period_end" and utc_datetime(selected.available_at) <= utc_datetime(current.as_of)
+        ):
             prior_candidates = [f for f in prior_candidates
                                 if utc_datetime(f.available_at) <= utc_datetime(current.as_of)]
+        elif mode == "period_end":
+            prior_candidates = [f for f in prior_candidates
+                                if utc_datetime(f.available_at) == utc_datetime(selected.available_at)]
         if not prior_candidates:
             return GrowthResult("rejected", "no_same_filing_adjacent_annual_predecessor", current)
         status, reason, previous = self._resolve(prior_candidates)
@@ -104,6 +121,10 @@ class RevenueEngine:
             return GrowthResult(status, f"previous:{reason}", current, evidence=evidence)
         if previous.basis_id != selected.basis_id or previous.unit != selected.unit:
             return GrowthResult("rejected", "incomparable_unit_or_accounting_basis", current, previous, evidence=evidence)
+        current_concept = (selected.concept_namespace, selected.concept.rsplit(":", 1)[-1])
+        previous_concept = (previous.concept_namespace, previous.concept.rsplit(":", 1)[-1])
+        if current_concept != previous_concept:
+            return GrowthResult("rejected", "unproven_cross_concept_comparability", current, previous, evidence=evidence)
         if utc_datetime(previous.available_at) != utc_datetime(selected.available_at):
             return GrowthResult("rejected", "inconsistent_same_filing_availability", current, previous, evidence=evidence)
         if previous.number is None or previous.number <= 0:
@@ -113,7 +134,7 @@ class RevenueEngine:
         with localcontext() as context:
             context.prec = 34
             growth = selected.number / previous.number - 1
-        return GrowthResult("ok", "same_filing_comparable_annual_pair", current, previous, decimal_text(growth), evidence)
+        return GrowthResult("ok", "same_filing_same_concept_annual_pair", current, previous, decimal_text(growth), evidence)
 
 
 # A concise alias for callers that name the component by its temporal behavior.

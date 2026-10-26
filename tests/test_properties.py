@@ -136,3 +136,48 @@ def test_latest_baseline_cannot_invent_original_disclosure_before_it_happened(va
     premature = engine.query_revenue(first.cik, first.period_end, "2024-01-15", mode="period_end")
     assert premature.number == Decimal(value)
     assert premature.uses_future_information
+
+
+@settings(max_examples=35, deadline=None)
+@given(first_value=st.integers(min_value=0, max_value=10**12), later_value=st.integers(min_value=0, max_value=10**12))
+def test_clarified_timing_baseline_cannot_expose_later_versions_before_first_disclosure(first_value, later_value):
+    first = _fact(first_value)
+    later = _fact(later_value, suffix="revision", accepted="2024-08-01T12:00:00Z")
+    later_quarter = replace(later, fact_id="future-quarter", period_start="2023-10-01")
+    later_segment = replace(later, fact_id="future-segment", dimensions='{"SegmentAxis":"WidgetMember"}')
+    query = "2024-01-15T12:00:00Z"
+    before = RevenueEngine([first]).query_revenue(first.cik, first.period_end, query, mode="period_end")
+    after = RevenueEngine([first, later, later_quarter, later_segment]).query_revenue(
+        first.cik, first.period_end, query, mode="period_end")
+    assert before.to_dict() == after.to_dict()
+
+
+@settings(max_examples=35, deadline=None)
+@given(first_value=st.integers(min_value=1, max_value=10**12), later_value=st.integers(min_value=0, max_value=10**12))
+def test_clarified_timing_baseline_equals_pit_after_first_actual_availability(first_value, later_value):
+    first = _fact(first_value)
+    later = _fact(later_value, suffix="revision", accepted="2024-08-01T12:00:00Z")
+    unresolved = replace(_fact(999, suffix="uncertain", accepted="2025-02-01T12:00:00Z"), status="ambiguous")
+    quarterly = replace(unresolved, fact_id="future-quarter", period_start="2023-10-01")
+    first_prior = replace(first, fact_id="first-prior", period_start="2022-01-01", period_end="2022-12-31", value="100")
+    later_prior = replace(later, fact_id="later-prior", period_start="2022-01-01", period_end="2022-12-31", value="100")
+    engine = RevenueEngine([first, first_prior, later, later_prior, unresolved, quarterly])
+    for query in ("2024-02-02T12:00:00Z", "2024-08-02T11:59:59Z", "2024-08-02T12:00:00Z", "2025-02-02T12:00:00Z"):
+        results = [engine.query_growth(first.cik, first.period_end, query, mode=mode).to_dict()
+                   for mode in ("period_end", "pit")]
+        for result in results:
+            # Mode is an intentional label; only the first event's effective time differs.
+            result["current"].pop("mode")
+            result["current"].pop("effective_at")
+        assert results[0] == results[1]
+
+
+def test_clarified_timing_baseline_does_not_skip_an_ambiguous_first_version():
+    first = replace(_fact(120), status="ambiguous")
+    later = _fact(130, suffix="resolved-later", accepted="2024-08-01T12:00:00Z")
+    result = RevenueEngine([first, later]).query_revenue(
+        first.cik, first.period_end, "2024-01-15", mode="period_end")
+    assert result.status == "ambiguous"
+    assert result.value is None
+    assert result.evidence == (first,)
+    assert result.candidate_count == 1

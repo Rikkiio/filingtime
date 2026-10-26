@@ -1,0 +1,270 @@
+{
+  "company_count": 8,
+  "comparisons_to_pit": {
+    "latest": {
+      "growth": {
+        "absolute_difference": {
+          "count": 218,
+          "max": "0.043477992805449859032252024379084",
+          "mean": "0.002662367123778867586675316322809638",
+          "median": "0.000000000000000000000000000000000"
+        },
+        "baseline_future_provenance_in_pairs": 96,
+        "baseline_only_usable_count": 0,
+        "both_usable_count": 218,
+        "direction_changed_count": 0,
+        "direction_changed_denominator": 218,
+        "direction_changed_rate": 0.0,
+        "future_provenance_without_numeric_change_count": 73,
+        "neither_usable_count": 1098,
+        "numeric_changed_count": 23,
+        "numeric_changed_denominator": 218,
+        "numeric_changed_rate": 0.10550458715596331,
+        "pit_only_usable_count": 842,
+        "total_query_keys": 2158
+      },
+      "revenue": {
+        "absolute_difference": {
+          "count": 2069,
+          "max": "47416000000",
+          "mean": "950945556.3073948767520541324311261",
+          "median": "0"
+        },
+        "baseline_future_provenance_in_pairs": 940,
+        "baseline_only_usable_count": 0,
+        "both_usable_count": 2069,
+        "future_provenance_without_numeric_change_count": 810,
+        "neither_usable_count": 89,
+        "numeric_changed_count": 130,
+        "numeric_changed_denominator": 2069,
+        "numeric_changed_rate": 0.06283228612856452,
+        "pit_only_usable_count": 0,
+        "total_query_keys": 2158
+      }
+    },
+    "period_end": {
+      "growth": {
+        "absolute_difference": {
+          "count": 1060,
+          "max": "0.0000000000000000000000000000000000",
+          "mean": "0.0000000000000000000000000000000000",
+          "median": "0.0000000000000000000000000000000000"
+        },
+        "baseline_future_provenance_in_pairs": 0,
+        "baseline_only_usable_count": 89,
+        "both_usable_count": 1060,
+        "direction_changed_count": 0,
+        "direction_changed_denominator": 1060,
+        "direction_changed_rate": 0.0,
+        "future_provenance_without_numeric_change_count": 0,
+        "neither_usable_count": 1009,
+        "numeric_changed_count": 0,
+        "numeric_changed_denominator": 1060,
+        "numeric_changed_rate": 0.0,
+        "pit_only_usable_count": 0,
+        "total_query_keys": 2158
+      },
+      "revenue": {
+        "absolute_difference": {
+          "count": 2069,
+          "max": "0",
+          "mean": "0",
+          "median": "0"
+        },
+        "baseline_future_provenance_in_pairs": 0,
+        "baseline_only_usable_count": 89,
+        "both_usable_count": 2069,
+        "future_provenance_without_numeric_change_count": 0,
+        "neither_usable_count": 0,
+        "numeric_changed_count": 0,
+        "numeric_changed_denominator": 2069,
+        "numeric_changed_rate": 0.0,
+        "pit_only_usable_count": 0,
+        "total_query_keys": 2158
+      }
+    }
+  },
+  "corpus_cutoff": "2025-12-31T23:59:59Z",
+  "definitions": {
+    "comparison_denominator": "Both modes usable on the identical key. Baseline-only, PIT-only, and neither-usable keys are retained separately.",
+    "future_provenance": "Selected source version available_at is later than as_of; this is distinct from whether its numeric value differs.",
+    "growth": "current / previous - 1, using the same filing, adjacent annual periods, equal unit and statement basis, equal concept local name and namespace, and positive denominator. This is a structural comparability rule, not an accounting audit.",
+    "latest_mode": "The final version in the fixed corpus is substituted from the original first availability date, isolating later-version backfilling.",
+    "numeric_precision": "Financial values and differences are Decimal strings; rates of counts are descriptive floating-point ratios.",
+    "observation": "One target company/fiscal-year and month-end query, repeated once per mode; only completed financial periods are included.",
+    "period_end_mode": "Only the first disclosure event is moved to financial period end. Subsequent versions retain their actual available_at. Once the first disclosure is actually available, selected values and statuses match PIT; the baseline does not keep stale first values.",
+    "rank": "Within fiscal year and as_of, each baseline is ranked against PIT on their common usable-growth company set, n>=2. Higher growth ranks first; exact ties use average ranks.",
+    "rank_membership": "A company occurrence in one evaluated fiscal-year/query/baseline group, not an independent company observation."
+  },
+  "input_files": [
+    {
+      "path": "data/processed/development_facts.jsonl",
+      "sha256": "cadcf2c5b53f1fba97a371bf6466af0d664d39afe9a9fb4e7c1d59c77d2f2c86"
+    },
+    {
+      "path": "data/processed/development_targets.json",
+      "sha256": "8996695aece4b739352a97de2684ad1450537aab548d3f495ca0271bf3879449"
+    }
+  ],
+  "limitations": [
+    "Purposive engineering corpus; no market-frequency or portfolio-return inference.",
+    "Repeated monthly observations are dependent; no statistical significance is claimed.",
+    "Different fiscal-year calendars can be grouped by the same year label; rankings are a mechanical sensitivity diagnostic, not economically synchronized investment signals.",
+    "The latest selected statement may omit the adjacent prior fiscal year; strict same-filing growth is then refused rather than spliced from an older basis.",
+    "A new source version can be future-dated while repeating the same number; future provenance and numeric distortion are reported separately.",
+    "For the timing-only period_end baseline, paired numeric and rank changes are expected to be zero once both modes are usable. Baseline-only availability before the first actual disclosure and future provenance quantify its contamination; common-set comparisons do not measure those missing PIT signals.",
+    "Human accounting review remains pending; no independent human agreement rate is reported."
+  ],
+  "modes": {
+    "latest": {
+      "growth": {
+        "coverage": 0.1010194624652456,
+        "future_provenance_count": 96,
+        "future_provenance_denominator": 218,
+        "future_provenance_rate": 0.44036697247706424,
+        "nonusable_reason_counts": {
+          "current:not_yet_originally_available": 89,
+          "no_same_filing_adjacent_annual_predecessor": 1851
+        },
+        "status_counts": {
+          "ambiguous": 0,
+          "missing": 89,
+          "ok": 218,
+          "rejected": 1851
+        },
+        "total_queries": 2158,
+        "usable_count": 218
+      },
+      "revenue": {
+        "coverage": 0.958758109360519,
+        "future_provenance_count": 940,
+        "future_provenance_denominator": 2069,
+        "future_provenance_rate": 0.4543257612373127,
+        "nonusable_reason_counts": {
+          "not_yet_originally_available": 89
+        },
+        "status_counts": {
+          "ambiguous": 0,
+          "missing": 89,
+          "ok": 2069,
+          "rejected": 0
+        },
+        "total_queries": 2158,
+        "usable_count": 2069
+      }
+    },
+    "period_end": {
+      "growth": {
+        "coverage": 0.5324374420759963,
+        "future_provenance_count": 89,
+        "future_provenance_denominator": 1149,
+        "future_provenance_rate": 0.07745865970409051,
+        "nonusable_reason_counts": {
+          "no_same_filing_adjacent_annual_predecessor": 1009
+        },
+        "status_counts": {
+          "ambiguous": 0,
+          "missing": 0,
+          "ok": 1149,
+          "rejected": 1009
+        },
+        "total_queries": 2158,
+        "usable_count": 1149
+      },
+      "revenue": {
+        "coverage": 1.0,
+        "future_provenance_count": 89,
+        "future_provenance_denominator": 2158,
+        "future_provenance_rate": 0.041241890639481,
+        "nonusable_reason_counts": {},
+        "status_counts": {
+          "ambiguous": 0,
+          "missing": 0,
+          "ok": 2158,
+          "rejected": 0
+        },
+        "total_queries": 2158,
+        "usable_count": 2158
+      }
+    },
+    "pit": {
+      "growth": {
+        "coverage": 0.4911955514365153,
+        "future_provenance_count": 0,
+        "future_provenance_denominator": 1060,
+        "future_provenance_rate": 0.0,
+        "nonusable_reason_counts": {
+          "current:no_available_consolidated_annual_candidate": 89,
+          "no_same_filing_adjacent_annual_predecessor": 1009
+        },
+        "status_counts": {
+          "ambiguous": 0,
+          "missing": 89,
+          "ok": 1060,
+          "rejected": 1009
+        },
+        "total_queries": 2158,
+        "usable_count": 1060
+      },
+      "revenue": {
+        "coverage": 0.958758109360519,
+        "future_provenance_count": 0,
+        "future_provenance_denominator": 2069,
+        "future_provenance_rate": 0.0,
+        "nonusable_reason_counts": {
+          "no_available_consolidated_annual_candidate": 89
+        },
+        "status_counts": {
+          "ambiguous": 0,
+          "missing": 89,
+          "ok": 2069,
+          "rejected": 0
+        },
+        "total_queries": 2158,
+        "usable_count": 2069
+      }
+    }
+  },
+  "observation_count": 6474,
+  "output_files": [
+    {
+      "path": "data/results/development_observations.csv",
+      "sha256": "93944f7418ad13537d2bb4917d6e202edddda95fa483903c7b7cb977d56c8a98"
+    },
+    {
+      "path": "data/results/development_rankings.csv",
+      "sha256": "38f7e23da504afb9f8f94037e2c4a176edea5fc863be89976fae5ef5768c7384"
+    }
+  ],
+  "query_count": 84,
+  "query_first": "2019-01-31T23:59:59.999999Z",
+  "query_key_count": 2158,
+  "query_last": "2025-12-31T23:59:59.999999Z",
+  "rankings": {
+    "latest": {
+      "candidate_groups": 300,
+      "changed_memberships": 0,
+      "common_memberships": 218,
+      "evaluated_groups": 41,
+      "insufficient_common_groups": 259,
+      "mean_absolute_rank_shift": "0",
+      "rank_change_denominator": 218,
+      "rank_change_rate": 0.0
+    },
+    "period_end": {
+      "candidate_groups": 300,
+      "changed_memberships": 0,
+      "common_memberships": 1055,
+      "evaluated_groups": 170,
+      "insufficient_common_groups": 130,
+      "mean_absolute_rank_shift": "0",
+      "rank_change_denominator": 1055,
+      "rank_change_rate": 0.0
+    }
+  },
+  "schema_version": "filingtime-experiment-v1",
+  "source_fact_count": 540,
+  "split": "development",
+  "target_count": 48,
+  "within_cutoff_fact_count": 540
+}

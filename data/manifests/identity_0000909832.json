@@ -1,0 +1,10 @@
+{
+  "cik": "0000909832",
+  "sample_ticker": "COST",
+  "current_sec_name": "COSTCO WHOLESALE CORP /NEW",
+  "current_sec_tickers": [
+    "COST"
+  ],
+  "checked_at": "2026-10-26T15:58:08Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

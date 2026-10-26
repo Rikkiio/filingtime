@@ -1,0 +1,10 @@
+{
+  "cik": "0000320187",
+  "filing_date_start": "2019-01-01",
+  "filing_date_end": "2025-12-31",
+  "accepted_cutoff_utc": "2025-12-31T23:59:59Z",
+  "forms_and_filing_date_candidates": 7,
+  "accepted_cutoff_excluded_count": 0,
+  "accepted_cutoff_excluded_accessions": [],
+  "selected_count": 7
+}

@@ -1,0 +1,386 @@
+[
+  {
+    "cik": "0000018230",
+    "ticker": "CAT",
+    "fiscal_year": 2019,
+    "period_end": "2019-12-31",
+    "split": "development",
+    "accession": "0000018230-20-000056"
+  },
+  {
+    "cik": "0000018230",
+    "ticker": "CAT",
+    "fiscal_year": 2020,
+    "period_end": "2020-12-31",
+    "split": "development",
+    "accession": "0000018230-21-000063"
+  },
+  {
+    "cik": "0000018230",
+    "ticker": "CAT",
+    "fiscal_year": 2021,
+    "period_end": "2021-12-31",
+    "split": "development",
+    "accession": "0000018230-22-000050"
+  },
+  {
+    "cik": "0000018230",
+    "ticker": "CAT",
+    "fiscal_year": 2022,
+    "period_end": "2022-12-31",
+    "split": "development",
+    "accession": "0000018230-23-000011"
+  },
+  {
+    "cik": "0000018230",
+    "ticker": "CAT",
+    "fiscal_year": 2023,
+    "period_end": "2023-12-31",
+    "split": "development",
+    "accession": "0000018230-24-000009"
+  },
+  {
+    "cik": "0000018230",
+    "ticker": "CAT",
+    "fiscal_year": 2024,
+    "period_end": "2024-12-31",
+    "split": "development",
+    "accession": "0000018230-25-000008"
+  },
+  {
+    "cik": "0000021344",
+    "ticker": "KO",
+    "fiscal_year": 2019,
+    "period_end": "2019-12-31",
+    "split": "development",
+    "accession": "0000021344-20-000006"
+  },
+  {
+    "cik": "0000021344",
+    "ticker": "KO",
+    "fiscal_year": 2020,
+    "period_end": "2020-12-31",
+    "split": "development",
+    "accession": "0000021344-21-000008"
+  },
+  {
+    "cik": "0000021344",
+    "ticker": "KO",
+    "fiscal_year": 2021,
+    "period_end": "2021-12-31",
+    "split": "development",
+    "accession": "0000021344-22-000009"
+  },
+  {
+    "cik": "0000021344",
+    "ticker": "KO",
+    "fiscal_year": 2022,
+    "period_end": "2022-12-31",
+    "split": "development",
+    "accession": "0000021344-23-000011"
+  },
+  {
+    "cik": "0000021344",
+    "ticker": "KO",
+    "fiscal_year": 2023,
+    "period_end": "2023-12-31",
+    "split": "development",
+    "accession": "0000021344-24-000009"
+  },
+  {
+    "cik": "0000021344",
+    "ticker": "KO",
+    "fiscal_year": 2024,
+    "period_end": "2024-12-31",
+    "split": "development",
+    "accession": "0000021344-25-000011"
+  },
+  {
+    "cik": "0000040545",
+    "ticker": "GE",
+    "fiscal_year": 2019,
+    "period_end": "2019-12-31",
+    "split": "development",
+    "accession": "0000040545-20-000009"
+  },
+  {
+    "cik": "0000040545",
+    "ticker": "GE",
+    "fiscal_year": 2020,
+    "period_end": "2020-12-31",
+    "split": "development",
+    "accession": "0000040545-21-000011"
+  },
+  {
+    "cik": "0000040545",
+    "ticker": "GE",
+    "fiscal_year": 2021,
+    "period_end": "2021-12-31",
+    "split": "development",
+    "accession": "0000040545-22-000008"
+  },
+  {
+    "cik": "0000040545",
+    "ticker": "GE",
+    "fiscal_year": 2022,
+    "period_end": "2022-12-31",
+    "split": "development",
+    "accession": "0000040545-23-000023"
+  },
+  {
+    "cik": "0000040545",
+    "ticker": "GE",
+    "fiscal_year": 2023,
+    "period_end": "2023-12-31",
+    "split": "development",
+    "accession": "0000040545-24-000027"
+  },
+  {
+    "cik": "0000040545",
+    "ticker": "GE",
+    "fiscal_year": 2024,
+    "period_end": "2024-12-31",
+    "split": "development",
+    "accession": "0000040545-25-000015"
+  },
+  {
+    "cik": "0000320187",
+    "ticker": "NKE",
+    "fiscal_year": 2019,
+    "period_end": "2019-05-31",
+    "split": "development",
+    "accession": "0000320187-19-000051"
+  },
+  {
+    "cik": "0000320187",
+    "ticker": "NKE",
+    "fiscal_year": 2020,
+    "period_end": "2020-05-31",
+    "split": "development",
+    "accession": "0000320187-20-000047"
+  },
+  {
+    "cik": "0000320187",
+    "ticker": "NKE",
+    "fiscal_year": 2021,
+    "period_end": "2021-05-31",
+    "split": "development",
+    "accession": "0000320187-21-000028"
+  },
+  {
+    "cik": "0000320187",
+    "ticker": "NKE",
+    "fiscal_year": 2022,
+    "period_end": "2022-05-31",
+    "split": "development",
+    "accession": "0000320187-22-000038"
+  },
+  {
+    "cik": "0000320187",
+    "ticker": "NKE",
+    "fiscal_year": 2023,
+    "period_end": "2023-05-31",
+    "split": "development",
+    "accession": "0000320187-23-000039"
+  },
+  {
+    "cik": "0000320187",
+    "ticker": "NKE",
+    "fiscal_year": 2024,
+    "period_end": "2024-05-31",
+    "split": "development",
+    "accession": "0000320187-24-000044"
+  },
+  {
+    "cik": "0000320193",
+    "ticker": "AAPL",
+    "fiscal_year": 2019,
+    "period_end": "2019-09-28",
+    "split": "development",
+    "accession": "0000320193-19-000119"
+  },
+  {
+    "cik": "0000320193",
+    "ticker": "AAPL",
+    "fiscal_year": 2020,
+    "period_end": "2020-09-26",
+    "split": "development",
+    "accession": "0000320193-20-000096"
+  },
+  {
+    "cik": "0000320193",
+    "ticker": "AAPL",
+    "fiscal_year": 2021,
+    "period_end": "2021-09-25",
+    "split": "development",
+    "accession": "0000320193-21-000105"
+  },
+  {
+    "cik": "0000320193",
+    "ticker": "AAPL",
+    "fiscal_year": 2022,
+    "period_end": "2022-09-24",
+    "split": "development",
+    "accession": "0000320193-22-000108"
+  },
+  {
+    "cik": "0000320193",
+    "ticker": "AAPL",
+    "fiscal_year": 2023,
+    "period_end": "2023-09-30",
+    "split": "development",
+    "accession": "0000320193-23-000106"
+  },
+  {
+    "cik": "0000320193",
+    "ticker": "AAPL",
+    "fiscal_year": 2024,
+    "period_end": "2024-09-28",
+    "split": "development",
+    "accession": "0000320193-24-000123"
+  },
+  {
+    "cik": "0000789019",
+    "ticker": "MSFT",
+    "fiscal_year": 2023,
+    "period_end": "2023-06-30",
+    "split": "development",
+    "accession": "0000950170-23-035122"
+  },
+  {
+    "cik": "0000789019",
+    "ticker": "MSFT",
+    "fiscal_year": 2024,
+    "period_end": "2024-06-30",
+    "split": "development",
+    "accession": "0000950170-24-087843"
+  },
+  {
+    "cik": "0001158449",
+    "ticker": "AAP",
+    "fiscal_year": 2019,
+    "period_end": "2019-12-28",
+    "split": "development",
+    "accession": "0001158449-20-000035"
+  },
+  {
+    "cik": "0001158449",
+    "ticker": "AAP",
+    "fiscal_year": 2020,
+    "period_end": "2021-01-02",
+    "split": "development",
+    "accession": "0001158449-21-000036"
+  },
+  {
+    "cik": "0001158449",
+    "ticker": "AAP",
+    "fiscal_year": 2021,
+    "period_end": "2022-01-01",
+    "split": "development",
+    "accession": "0001158449-22-000037"
+  },
+  {
+    "cik": "0001158449",
+    "ticker": "AAP",
+    "fiscal_year": 2022,
+    "period_end": "2022-12-31",
+    "split": "development",
+    "accession": "0001158449-23-000035"
+  },
+  {
+    "cik": "0001158449",
+    "ticker": "AAP",
+    "fiscal_year": 2023,
+    "period_end": "2023-12-30",
+    "split": "development",
+    "accession": "0001158449-24-000048"
+  },
+  {
+    "cik": "0001158449",
+    "ticker": "AAP",
+    "fiscal_year": 2024,
+    "period_end": "2024-12-28",
+    "split": "development",
+    "accession": "0001158449-25-000064"
+  },
+  {
+    "cik": "0001500435",
+    "ticker": "GPRO",
+    "fiscal_year": 2019,
+    "period_end": "2019-12-31",
+    "split": "development",
+    "accession": "0001500435-20-000013"
+  },
+  {
+    "cik": "0001500435",
+    "ticker": "GPRO",
+    "fiscal_year": 2020,
+    "period_end": "2020-12-31",
+    "split": "development",
+    "accession": "0001500435-21-000020"
+  },
+  {
+    "cik": "0001500435",
+    "ticker": "GPRO",
+    "fiscal_year": 2021,
+    "period_end": "2021-12-31",
+    "split": "development",
+    "accession": "0001500435-22-000016"
+  },
+  {
+    "cik": "0001500435",
+    "ticker": "GPRO",
+    "fiscal_year": 2022,
+    "period_end": "2022-12-31",
+    "split": "development",
+    "accession": "0001500435-23-000021"
+  },
+  {
+    "cik": "0001500435",
+    "ticker": "GPRO",
+    "fiscal_year": 2023,
+    "period_end": "2023-12-31",
+    "split": "development",
+    "accession": "0001500435-24-000021"
+  },
+  {
+    "cik": "0000789019",
+    "ticker": "MSFT",
+    "fiscal_year": 2019,
+    "period_end": "2019-06-30",
+    "split": "development",
+    "accession": "0001564590-19-027952"
+  },
+  {
+    "cik": "0000789019",
+    "ticker": "MSFT",
+    "fiscal_year": 2020,
+    "period_end": "2020-06-30",
+    "split": "development",
+    "accession": "0001564590-20-034944"
+  },
+  {
+    "cik": "0000789019",
+    "ticker": "MSFT",
+    "fiscal_year": 2021,
+    "period_end": "2021-06-30",
+    "split": "development",
+    "accession": "0001564590-21-039151"
+  },
+  {
+    "cik": "0000789019",
+    "ticker": "MSFT",
+    "fiscal_year": 2022,
+    "period_end": "2022-06-30",
+    "split": "development",
+    "accession": "0001564590-22-026876"
+  },
+  {
+    "cik": "0001500435",
+    "ticker": "GPRO",
+    "fiscal_year": 2024,
+    "period_end": "2024-12-31",
+    "split": "development",
+    "accession": "0001628280-25-013046"
+  }
+]

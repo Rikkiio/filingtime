@@ -57,6 +57,83 @@ def test_revised_fact_becomes_visible_at_exact_allowed_instant():
     assert engine.query_revenue("1", "2023-12-31", "2025-02-02T16:00:00Z").value == "130"
 
 
+@pytest.mark.parametrize("as_of", [
+    "2024-02-02T16:00:00Z", "2024-12-31", "2025-02-02T15:59:59.999999Z",
+    "2025-02-02T16:00:00Z", "2025-12-31",
+])
+def test_period_end_matches_pit_after_first_actual_availability(as_of):
+    engine = RevenueEngine([fact(), revised()])
+    pit = engine.query_revenue("1", "2023-12-31", as_of)
+    timing = engine.query_revenue("1", "2023-12-31", as_of, mode="period_end")
+    assert timing.status == pit.status
+    assert timing.value == pit.value
+    assert timing.fact == pit.fact and timing.evidence == pit.evidence
+    assert not timing.uses_future_information
+    pit_dict, timing_dict = pit.to_dict(), timing.to_dict()
+    for field in ("mode", "effective_at"):
+        pit_dict.pop(field)
+        timing_dict.pop(field)
+    assert timing_dict == pit_dict
+
+
+def test_period_end_before_first_disclosure_exposes_only_first_event():
+    early = RevenueEngine([fact()]).query_revenue("1", "2023-12-31", "2024-01-15", mode="period_end")
+    future_segment = revised(fact_id="future-segment", dimensions={"ProductAxis": "ProductA"})
+    future_quarter = revised(fact_id="future-quarter", period_start="2023-10-01")
+    expanded = RevenueEngine([fact(), revised(), future_segment, future_quarter]).query_revenue(
+        "1", "2023-12-31", "2024-01-15", mode="period_end")
+    assert expanded.to_dict() == early.to_dict()
+
+
+def test_period_end_does_not_skip_first_ambiguous_disclosure():
+    first = fact(status="ambiguous", reason="first_basis_unproved")
+    engine = RevenueEngine([first, revised()])
+    early = engine.query_revenue("1", "2023-12-31", "2024-01-15", mode="period_end")
+    assert early.status == "ambiguous" and early.fact is None
+    assert early.evidence == (first,)
+
+
+def test_period_end_updates_on_revision_instead_of_retaining_stale_first_value():
+    engine = RevenueEngine([fact(), revised()])
+    result = engine.query_revenue("1", "2023-12-31", "2025-03-01", mode="period_end")
+    assert result.value == "130"
+    assert result.effective_at == revised().available_at
+
+
+def test_period_end_adopts_later_ambiguous_status_without_falling_back():
+    engine = RevenueEngine([fact(), revised(status="ambiguous", reason="basis_unproved")])
+    result = engine.query_revenue("1", "2023-12-31", "2025-03-01", mode="period_end")
+    pit = engine.query_revenue("1", "2023-12-31", "2025-03-01")
+    assert result.status == pit.status == "ambiguous"
+    assert result.value is None
+
+
+def test_period_end_never_releases_first_value_before_period_close():
+    engine = RevenueEngine([fact(), revised()])
+    assert engine.query_revenue("1", "2023-12-31", "2023-12-31T23:59:59Z", mode="period_end").status == "missing"
+    assert engine.query_revenue("1", "2023-12-31", "2023-12-31T23:59:59.999999Z", mode="period_end").value == "120"
+
+
+def test_period_end_growth_uses_revised_pair_at_actual_revision_time():
+    prior_revision = revised(period_start="2022-01-01", period_end="2022-12-31",
+                             fact_id="revenue-2022", context_id="FY2022", value="110")
+    engine = RevenueEngine([fact(), previous(), revised(), prior_revision])
+    for as_of in ("2024-03-01", "2025-03-01"):
+        pit = engine.query_growth("1", "2023-12-31", as_of)
+        timing = engine.query_growth("1", "2023-12-31", as_of, mode="period_end")
+        assert timing.status == pit.status == "ok"
+        assert timing.growth == pit.growth
+        assert timing.previous == pit.previous
+
+
+def test_period_end_growth_rejects_new_version_without_same_filing_comparative():
+    engine = RevenueEngine([fact(), previous(), revised()])
+    timing = engine.query_growth("1", "2023-12-31", "2025-03-01", mode="period_end")
+    pit = engine.query_growth("1", "2023-12-31", "2025-03-01")
+    assert timing.status == pit.status == "rejected"
+    assert timing.reason == pit.reason == "no_same_filing_adjacent_annual_predecessor"
+
+
 def test_missing_query_is_identical_before_future_append():
     before = RevenueEngine([]).query_revenue("1", "2023-12-31", "2023-12-31")
     after = RevenueEngine([fact()]).query_revenue("1", "2023-12-31", "2023-12-31")
@@ -124,6 +201,31 @@ def test_growth_uses_paired_comparatives_in_same_filing():
     result = RevenueEngine([fact(), previous()]).query_growth("1", "2023-12-31", "2024-03-01")
     assert result.status == "ok" and result.number == Decimal("0.2")
     assert result.previous.accession == result.current.fact.accession
+    assert result.reason == "same_filing_same_concept_annual_pair"
+
+
+def test_growth_refuses_different_concepts_even_in_same_statement_basis():
+    current = fact(concept_namespace="http://fasb.org/us-gaap/2024")
+    prior = previous(concept="us-gaap:SalesRevenueNet", concept_namespace="http://fasb.org/us-gaap/2024")
+    result = RevenueEngine([current, prior]).query_growth("1", "2023-12-31", "2024-03-01")
+    assert result.status == "rejected"
+    assert result.reason == "unproven_cross_concept_comparability"
+
+
+def test_growth_refuses_same_local_concept_from_different_namespaces():
+    current = fact(concept_namespace="http://fasb.org/us-gaap/2024")
+    prior = previous(concept_namespace="https://example.invalid/issuer/2024")
+    result = RevenueEngine([current, prior]).query_growth("1", "2023-12-31", "2024-03-01")
+    assert result.status == "rejected"
+    assert result.reason == "unproven_cross_concept_comparability"
+
+
+def test_growth_accepts_prefix_alias_for_the_same_namespace_and_local_concept():
+    current = fact(concept_namespace="http://fasb.org/us-gaap/2024")
+    prior = previous(concept="gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+                     concept_namespace="http://fasb.org/us-gaap/2024")
+    result = RevenueEngine([current, prior]).query_growth("1", "2023-12-31", "2024-03-01")
+    assert result.status == "ok" and result.number == Decimal("0.2")
 
 
 @pytest.mark.parametrize("change,reason", [

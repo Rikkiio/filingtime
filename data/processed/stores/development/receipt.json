@@ -1,0 +1,11 @@
+{
+  "format": "filingtime-fact-store-v1",
+  "fact_count": 540,
+  "parts": [
+    {
+      "file": "facts-3e1ccf010591e4d9ef3f3f52ad58c71875d4f6b31e5ae27f36ab329dd5bf9626.parquet",
+      "sha256": "994351286e6554dab702b2e4ee1363546035d3ded72cf6fdc3646e89a804c09d",
+      "bytes": 68694
+    }
+  ]
+}

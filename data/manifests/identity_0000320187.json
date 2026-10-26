@@ -1,0 +1,10 @@
+{
+  "cik": "0000320187",
+  "sample_ticker": "NKE",
+  "current_sec_name": "NIKE, Inc.",
+  "current_sec_tickers": [
+    "NKE"
+  ],
+  "checked_at": "2026-10-26T15:47:11Z",
+  "note": "CIK is the stable identity; historical sample ticker need not remain listed"
+}

@@ -47,11 +47,15 @@ All modes use the same corpus cutoff, query grid, candidate universe, unit polic
 
 | Mode | Intended behavior | Deliberate defect |
 |---|---|---|
-| `period_end` | Makes the first disclosed value available at its economic period end | Uses information before filing |
+| `period_end` | Moves only the first disclosure's effective time to its economic period end; subsequent versions retain actual availability | Uses the initial source before its allowed time |
 | `latest` | Uses the final cutoff-bounded version from the first disclosure's availability time | Backfills future revisions |
 | `pit` | Uses the most recent eligible disclosure at the query time | None intended; failures must still be measured |
 
 The first two are explicit contaminated baselines. The `latest` mode must not make a company-period appear before its original availability date; otherwise it combines the two defects. No baseline may use a filing beyond the corpus cutoff. A future version can be temporally ineligible even if its number happens to be identical; numeric difference and provenance leakage are distinct outcomes.
+
+The [pre-evaluation clarification](PROTOCOL_AMENDMENT_01.md) removes permanent retention of the first value from `period_end`. At and after first actual availability, its selected fact, refusal status and growth must agree with PIT; later ambiguous versions must propagate instead of leaving a stale accepted value. Before that boundary it can expose only the first candidate version, including any unresolved status, without skipping forward to a later accepted one. Candidate counts and diagnostics must not expose later unavailable versions.
+
+Consequently, `period_end` versus PIT must have zero revenue/growth changes and zero rank changes **on common usable observations**. This is a control implication, not evidence that premature use is harmless. Its timing defect appears in future-source use and baseline-only usable queries, which are outside the paired-usable denominator. Common-set ranking does not measure how early disclosure changes the composition of the available universe. The `latest` comparison measures later-version backfilling and retains its separate numeric-change diagnostics.
 
 Growth needs two compatible annual periods from the same filing. Unit, entity scope and accounting basis must agree; the previous period must be the immediately preceding comparable fiscal year. A same-filing comparative pair does not eliminate the need to inspect restatement, discontinued-operation and policy notes. Do not splice unrelated periods or use a later prior-year number merely to complete a denominator. Zero prior revenue yields an undefined growth result and an explicit reason.
 
@@ -73,7 +77,7 @@ Publish integer numerators and denominators alongside percentages, for both deve
 
 Without independently adjudicated temporal labels, do not report measured real-world precision/recall; report synthetic detection results separately. Ranks use a fixed tie convention and only the common evaluable set. Publish excluded counts and reasons by mode. Different coverage must not silently change the ranking universe. Small engineering samples support case-based findings, not population prevalence estimates.
 
-The executable [synthetic injection benchmark](../scripts/benchmark_injections.py) stores literal expected labels before calling the engine. Its [generated result](../data/results/synthetic_injection_benchmark.json) reports scenario-level TP/FP/TN/FN, scoring coverage, separate refusals, and a separate semantic-fault classification table. Test assertion counts are not detection-rate denominators. An unexpected refusal of a labelled case reduces coverage and is never counted as a true negative. The checked-in run has three positive and four negative scored temporal cases, plus two separately reported refusals and eight semantic cases. These artificial cases are not real human-labelled ground truth.
+The executable [synthetic injection benchmark](../scripts/benchmark_injections.py) stores literal expected labels before calling the engine. Its [generated result](../data/results/synthetic_injection_benchmark.json) reports scenario-level TP/FP/TN/FN, scoring coverage, separate refusals, and a separate semantic-fault classification table. Test assertion counts are not detection-rate denominators. An unexpected refusal of a labelled case reduces coverage and is never counted as a true negative. The clarified fixtures specify three positive and six negative scored temporal cases, plus three separately reported refusals and eight semantic cases. New cases verify that the period-end baseline updates when a revision becomes available and propagates later ambiguity. These artificial cases are not real human-labelled ground truth. The superseded synthetic result is preserved in [the exploratory archive](../data/exploratory/pre_timing_clarification/synthetic_injection_benchmark.json); its code hashes and counts are not current release evidence.
 
 ## Mandatory adversarial checks
 
@@ -83,6 +87,8 @@ These checks use synthetic fixtures unless a source-linked real case is explicit
 |---|---|
 | Query one instant before a record becomes available | `pit` does not return that record |
 | Query exactly at its availability instant | It may be selected, subject to semantic checks |
+| Period-end baseline at/after first actual availability | Same selected value and status as PIT; later revisions and refusals update normally |
+| Period-end baseline before first actual availability | Only the first candidate version is advanced; later facts cannot affect its answer or diagnostics |
 | Append arbitrarily changed future records | Earlier `pit` answers and their selected provenance remain unchanged |
 | Permute or duplicate equivalent inputs | Values and selected evidence remain deterministic |
 | Later normal 10-K revises an old comparative figure | The old snapshot remains intact; later eligible snapshot may change |

@@ -1,0 +1,225 @@
+{
+  "status": "passed",
+  "created_at": "2026-10-26T16:20:25.219919+00:00",
+  "tests": {
+    "exit_code": 0,
+    "passed_count": 173,
+    "output": "........................................................................ [ 41%]\n........................................................................ [ 83%]\n.............................                                            [100%]\n173 passed in 9.95s"
+  },
+  "ruff": {
+    "exit_code": 0,
+    "output": "All checks passed!"
+  },
+  "checks": {
+    "corpus": {
+      "status": "passed",
+      "source_files": 800,
+      "unique_urls": 800,
+      "original_bytes": 1178320827,
+      "filing_count": 87,
+      "failures": [],
+      "claim": "Archived bytes match the saved download hashes; this does not prove accounting truth."
+    },
+    "support_files": {
+      "status": "passed",
+      "taxonomy_files": 159,
+      "vendor_and_notice_files": 6,
+      "failures": []
+    },
+    "development_provenance": {
+      "status": "passed",
+      "fact_count": 540,
+      "status_counts": {
+        "accepted": 540
+      },
+      "failures": []
+    }
+  },
+  "coverage": {
+    "development": {
+      "planned_companies": 8,
+      "planned_company_years": 48,
+      "identified_target_company_years": 48,
+      "missing_company_years": [],
+      "collected_filings": 57,
+      "parsed_filings": 57,
+      "unparsed_accessions": [],
+      "parse_status_counts": {
+        "parsed": 57
+      },
+      "filings_with_validation_messages": 0,
+      "note": "Target identification is separate from accepted-revenue or growth-query coverage."
+    },
+    "holdout": {
+      "planned_companies": 4,
+      "planned_company_years": 24,
+      "identified_target_company_years": 0,
+      "missing_company_years": [
+        {
+          "cik": "0000909832",
+          "ticker": "COST",
+          "fiscal_year": 2019
+        },
+        {
+          "cik": "0000909832",
+          "ticker": "COST",
+          "fiscal_year": 2020
+        },
+        {
+          "cik": "0000909832",
+          "ticker": "COST",
+          "fiscal_year": 2021
+        },
+        {
+          "cik": "0000909832",
+          "ticker": "COST",
+          "fiscal_year": 2022
+        },
+        {
+          "cik": "0000909832",
+          "ticker": "COST",
+          "fiscal_year": 2023
+        },
+        {
+          "cik": "0000909832",
+          "ticker": "COST",
+          "fiscal_year": 2024
+        },
+        {
+          "cik": "0000315189",
+          "ticker": "DE",
+          "fiscal_year": 2019
+        },
+        {
+          "cik": "0000315189",
+          "ticker": "DE",
+          "fiscal_year": 2020
+        },
+        {
+          "cik": "0000315189",
+          "ticker": "DE",
+          "fiscal_year": 2021
+        },
+        {
+          "cik": "0000315189",
+          "ticker": "DE",
+          "fiscal_year": 2022
+        },
+        {
+          "cik": "0000315189",
+          "ticker": "DE",
+          "fiscal_year": 2023
+        },
+        {
+          "cik": "0000315189",
+          "ticker": "DE",
+          "fiscal_year": 2024
+        },
+        {
+          "cik": "0000047217",
+          "ticker": "HPQ",
+          "fiscal_year": 2019
+        },
+        {
+          "cik": "0000047217",
+          "ticker": "HPQ",
+          "fiscal_year": 2020
+        },
+        {
+          "cik": "0000047217",
+          "ticker": "HPQ",
+          "fiscal_year": 2021
+        },
+        {
+          "cik": "0000047217",
+          "ticker": "HPQ",
+          "fiscal_year": 2022
+        },
+        {
+          "cik": "0000047217",
+          "ticker": "HPQ",
+          "fiscal_year": 2023
+        },
+        {
+          "cik": "0000047217",
+          "ticker": "HPQ",
+          "fiscal_year": 2024
+        },
+        {
+          "cik": "0000850209",
+          "ticker": "FL",
+          "fiscal_year": 2019
+        },
+        {
+          "cik": "0000850209",
+          "ticker": "FL",
+          "fiscal_year": 2020
+        },
+        {
+          "cik": "0000850209",
+          "ticker": "FL",
+          "fiscal_year": 2021
+        },
+        {
+          "cik": "0000850209",
+          "ticker": "FL",
+          "fiscal_year": 2022
+        },
+        {
+          "cik": "0000850209",
+          "ticker": "FL",
+          "fiscal_year": 2023
+        },
+        {
+          "cik": "0000850209",
+          "ticker": "FL",
+          "fiscal_year": 2024
+        }
+      ],
+      "collected_filings": 30,
+      "parsed_filings": 0,
+      "unparsed_accessions": [
+        "0000909832-19-000019",
+        "0000909832-20-000017",
+        "0000909832-21-000014",
+        "0000909832-22-000021",
+        "0000909832-23-000042",
+        "0000909832-24-000049",
+        "0000909832-25-000101",
+        "0001558370-19-011614",
+        "0001558370-20-014436",
+        "0001558370-21-016864",
+        "0001558370-22-018703",
+        "0001558370-23-019812",
+        "0001558370-24-016169",
+        "0001104659-25-122321",
+        "0000047217-19-000071",
+        "0001206774-20-000632",
+        "0000047217-20-000045",
+        "0000047217-21-000060",
+        "0000047217-22-000068",
+        "0000047217-23-000075",
+        "0000047217-23-000100",
+        "0000047217-24-000080",
+        "0000047217-25-000071",
+        "0001558370-19-002753",
+        "0000850209-20-000007",
+        "0000850209-21-000003",
+        "0000850209-22-000003",
+        "0000850209-23-000006",
+        "0001437749-24-009866",
+        "0001437749-25-009620"
+      ],
+      "parse_status_counts": {},
+      "filings_with_validation_messages": 0,
+      "note": "Target identification is separate from accepted-revenue or growth-query coverage."
+    }
+  },
+  "holdout_parsed_files": [],
+  "source_checks_count": 13,
+  "source_checks_current_artifacts": true,
+  "timing_control_zero_paired_numeric_difference": true,
+  "source_checks_sha256": "df79fcbacd0766ee1cfff29a56c280013f04d267f1712a62606aa26044d3af44",
+  "development_facts_sha256": "cadcf2c5b53f1fba97a371bf6466af0d664d39afe9a9fb4e7c1d59c77d2f2c86",
+  "human_review_status": "pending"
+}

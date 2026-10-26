@@ -82,6 +82,20 @@ def test_future_source_with_unchanged_value_is_not_numeric_distortion():
     assert stats["future_provenance_without_numeric_change_count"] == 1
 
 
+def test_timing_only_baseline_changes_availability_not_post_disclosure_values():
+    facts = pair() + pair(value="130", revision=True)
+    result = evaluate(facts, [target()], "development",
+                      query_dates=["2024-01-31", "2024-03-31", "2025-03-31"])
+    stats = result.summary["comparisons_to_pit"]["period_end"]["growth"]
+    assert stats["baseline_only_usable_count"] == 1
+    assert stats["both_usable_count"] == 2
+    assert stats["numeric_changed_count"] == stats["direction_changed_count"] == 0
+    assert result.summary["modes"]["period_end"]["growth"]["future_provenance_count"] == 1
+    after_revision = next(row for row in result.observations
+                          if row["mode"] == "period_end" and row["as_of"].startswith("2025-03-31"))
+    assert after_revision["revenue_value"] == "130" and after_revision["growth_value"] == "0.3"
+
+
 def test_growth_sign_change_and_zero_are_separate_from_magnitude():
     result = evaluate(pair(value="90") + pair(value="100", revision=True), [target()], "development", query_dates=["2024-03-31"])
     stats = result.summary["comparisons_to_pit"]["latest"]["growth"]
@@ -109,6 +123,14 @@ def test_rank_reversal_matches_hand_calculation():
     assert group["mean_absolute_rank_shift"] == "1"
     members = [row for row in result.rankings if row["baseline"] == "latest" and row["record_type"] == "member"]
     assert [row["rank_shift"] for row in members] == ["1", "-1"]
+
+
+def test_timing_only_baseline_rankings_follow_pit_after_revision():
+    facts = pair("1", "120") + pair("1", "110", revision=True) + pair("2", "110") + pair("2", "120", revision=True)
+    result = evaluate(facts, [target("1"), target("2")], "development", query_dates=["2025-03-31"])
+    stats = result.summary["rankings"]["period_end"]
+    assert stats["evaluated_groups"] == 1 and stats["common_memberships"] == 2
+    assert stats["changed_memberships"] == 0
 
 
 def test_rankings_use_common_set_and_report_excluded_member():

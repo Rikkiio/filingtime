@@ -96,10 +96,10 @@ def normalize_filing(candidates: list[RevenueFact], audit: dict) -> tuple[list[R
             reason = "excluded_nonannual_duration"
         elif not fact.is_consolidated:
             reason = "excluded_dimensional_or_segment_context"
-        elif candidate_kind(fact) == "not_supported_total_revenue":
-            reason = "excluded_non_total_revenue_concept"
         elif not primary_income_roles(fact):
             reason = "excluded_without_primary_income_statement_role"
+        elif candidate_kind(fact) == "not_supported_total_revenue" and NEGATIVE.search(fact.concept + " " + fact.label):
+            reason = "excluded_known_non_revenue_concept"
         if reason:
             ledger.append({"identity": fact.identity, "concept": fact.concept,
                            "period_end": fact.period_end, "decision": "excluded", "reason": reason})
@@ -124,6 +124,8 @@ def normalize_filing(candidates: list[RevenueFact], audit: dict) -> tuple[list[R
         else:
             selected = [fact for fact in group if fact.concept == selected_concept]
             status, reason = "accepted", "primary_statement_consolidated_annual_total"
+            if any(candidate_kind(fact) == "not_supported_total_revenue" for fact in selected):
+                status, reason = "ambiguous", "unsupported_primary_statement_revenue_concept"
             for fact in group:
                 if fact.concept != selected_concept:
                     ledger.append({"identity": fact.identity, "concept": fact.concept,

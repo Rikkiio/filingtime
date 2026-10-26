@@ -1,0 +1,79 @@
+{
+  "completed_at": "2026-10-26T16:11:30Z",
+  "selected_companies": [
+    {
+      "ticker": "AAPL",
+      "split": "development",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "MSFT",
+      "split": "development",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "KO",
+      "split": "development",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "CAT",
+      "split": "development",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "GE",
+      "split": "development",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "NKE",
+      "split": "development",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "AAP",
+      "split": "development",
+      "eligible_filings": 8,
+      "downloaded_filings": 8
+    },
+    {
+      "ticker": "GPRO",
+      "split": "development",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "COST",
+      "split": "holdout",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "DE",
+      "split": "holdout",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    },
+    {
+      "ticker": "HPQ",
+      "split": "holdout",
+      "eligible_filings": 9,
+      "downloaded_filings": 9
+    },
+    {
+      "ticker": "FL",
+      "split": "holdout",
+      "eligible_filings": 7,
+      "downloaded_filings": 7
+    }
+  ],
+  "sources": 800,
+  "financial_values_inspected": false
+}

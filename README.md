@@ -172,7 +172,7 @@ No API key or network request is needed for the bundled queries, experiments or 
 
 | Mode | Source-version rule | Purpose |
 |---|---|---|
-| `period_end` | First reported value, made usable at the fiscal period end | Expose premature-information use |
+| `period_end` | First disclosure moved to fiscal period end; later revisions keep their actual timing | Isolate premature first-disclosure use |
 | `latest` | Final collected version, backfilled to first original availability | Expose revision backfilling |
 | `pit` | Latest version actually eligible at the query time | Enforce the declared information boundary |
 
@@ -187,7 +187,7 @@ The [report](docs/REPORT.md) separates future-source use, numeric changes, growt
 - A revenue-looking number can belong to a segment or an equity-method investee. The Coca-Cola source case shows why selecting the largest amount fails.
 - A 10-K/A can amend something other than revenue; an ordinary later 10-K can change a comparative year.
 - A later value can reflect discontinued operations or a changed accounting basis. A numerical difference alone is not an accounting error.
-- Growth requires a comparable adjacent annual pair in the **same filing**. If a later filing omits the previous year, the query refuses the calculation rather than silently mixing bases.
+- Growth requires an adjacent annual pair in the **same filing**, statement basis, concept namespace/local name and currency. These structural checks do not replace accounting-policy review. If a later filing omits the previous year, the query refuses the calculation rather than silently mixing bases.
 - Unsupported units, unknown totals, conflicting contexts and unresolved semantics remain explicit refusals.
 
 ## Reproduce the evidence
